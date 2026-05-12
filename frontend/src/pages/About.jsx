@@ -2,70 +2,93 @@ export default function About() {
   return (
     <div>
 
-      {/* Intro */}
+      {/* ABOUT */}
       <section
         style={{
-          marginBottom: "80px",
+          maxWidth: "1180px",
+          marginBottom: "70px",
         }}
       >
 
+        {/* Label */}
         <p
           style={{
             fontFamily: "var(--font-mono)",
-            fontSize: "11px",
+            fontSize: "12px",
+            letterSpacing: "0.18em",
             textTransform: "uppercase",
-            letterSpacing: "0.16em",
             color: "var(--color-ink-mute)",
-            marginBottom: "20px",
+            marginBottom: "24px",
           }}
         >
           About Me
         </p>
 
+        {/* Title */}
+        <h1
+          style={{
+            fontFamily: "var(--font-display)",
+            fontSize: "38px",
+            lineHeight: "0.95",
+            fontWeight: 400,
+            color: "var(--color-ink)",
+            marginBottom: "32px",
+          }}
+        >
+          Hi, I’m Kishor!
+        </h1>
 
+        {/* Content */}
         <div
           style={{
-            maxWidth: "760px",
+            maxWidth: "980px",
           }}
         >
 
           <p
             style={{
-              fontSize: "16px",
-              lineHeight: "2",
+              fontSize: "15px",
+              lineHeight: "1.75",
               color: "var(--color-ink-dim)",
-              marginBottom: "28px",
+              marginBottom: "20px",
             }}
           >
-            Hi, I’m Kishor! I grew up in Tamil Nadu and now spend most of my time building immersive full stack experiences and experimenting with thoughtful interface design.
+            I grew up in Tamil Nadu and am now exploring the world of full stack
+            development and modern interface design. What started as curiosity
+            around websites slowly turned into a love for crafting immersive
+            digital products that feel calm, thoughtful, and human.
           </p>
 
           <p
             style={{
-              fontSize: "16px",
-              lineHeight: "2",
+              fontSize: "15px",
+              lineHeight: "1.75",
               color: "var(--color-ink-dim)",
-              marginBottom: "28px",
+              marginBottom: "20px",
             }}
           >
-            What started as curiosity around websites slowly turned into a love for crafting digital products that feel calm, modern, and human.
+            When I’m not building projects, you’ll probably find me redesigning
+            UI ideas, experimenting with animations, listening to Tamil songs
+            late at night, or trying to survive being trapped in SKCET for
+            another semester :)
           </p>
 
           <p
             style={{
-              fontSize: "16px",
-              lineHeight: "2",
+              fontSize: "15px",
+              lineHeight: "1.75",
               color: "var(--color-ink-dim)",
             }}
           >
-            When I’m not building projects, you’ll probably find me redesigning UI ideas, listening to Tamil songs late at night, or trying to survive being trapped in SKCET for another semester :)
+            Always happy to connect — whether it’s about development, design,
+            projects, or just good conversations.
           </p>
 
         </div>
 
       </section>
 
-      {/* Image Strip */}
+      {/* IMAGE STRIP */}
       <section
         style={{
           marginBottom: "90px",
@@ -75,61 +98,63 @@ export default function About() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "1fr 2.2fr 1fr",
-            gap: "24px",
+            gridTemplateColumns: "1fr 2.1fr 1fr",
+            gap: "20px",
           }}
         >
 
-          <ImageCard height="420px" />
-          <ImageCard height="420px" />
-          <ImageCard height="420px" />
+          <ImageCard height="340px" />
+          <ImageCard height="340px" />
+          <ImageCard height="340px" />
 
         </div>
 
       </section>
 
-      {/* Communities */}
+      {/* MY JOURNEY */}
       <section
         style={{
           marginBottom: "110px",
         }}
       >
 
+        {/* Label */}
         <p
           style={{
             fontFamily: "var(--font-mono)",
-            fontSize: "11px",
+            fontSize: "12px",
+            letterSpacing: "0.18em",
             textTransform: "uppercase",
-            letterSpacing: "0.16em",
             color: "var(--color-ink-mute)",
-            marginBottom: "26px",
+            marginBottom: "24px",
           }}
         >
           My Journey
         </p>
 
+        {/* Cards */}
         <div
           style={{
             display: "grid",
             gridTemplateColumns:
-              "repeat(auto-fit, minmax(240px, 260px))",
-            gap: "22px",
+              "repeat(auto-fit, minmax(220px, 240px))",
+            gap: "20px",
           }}
         >
 
           <InfoCard
             title="Schooling"
-            description="Completed my schooling with a strong interest in technology, creativity, and problem solving — which later led me into full stack development and interface design."
+            description="Completed my schooling with strong interests in creativity, technology, and problem solving."
           />
 
           <InfoCard
             title="SKCET"
-            description="Currently pursuing my degree at Sri Krishna College of Engineering and Technology while building modern web applications, UI systems, and immersive digital experiences."
+            description="Currently pursuing engineering while building modern full stack applications and immersive interfaces."
           />
 
           <InfoCard
-            title="Full Stack Journey"
-            description="Focused on React, Node.js, MongoDB, Framer Motion, and crafting modern editorial-inspired interfaces that combine engineering with visual storytelling."
+            title="Full Stack"
+            description="Focused on React, Node.js, MongoDB, Framer Motion, and editorial-inspired web experiences."
           />
 
         </div>
@@ -140,7 +165,7 @@ export default function About() {
   );
 }
 
-/* -------------------------------- */
+/* IMAGE CARD */
 
 function ImageCard({ height }) {
   return (
@@ -148,7 +173,7 @@ function ImageCard({ height }) {
       className="editorial-surface soft-hover"
       style={{
         height,
-        borderRadius: "22px",
+        borderRadius: "18px",
         overflow: "hidden",
         background:
           "linear-gradient(135deg, var(--color-pink-1), var(--color-bg-neutral))",
@@ -157,7 +182,7 @@ function ImageCard({ height }) {
   );
 }
 
-/* -------------------------------- */
+/* JOURNEY CARD */
 
 function InfoCard({
   title,
@@ -167,82 +192,49 @@ function InfoCard({
     <article
       className="editorial-surface soft-hover"
       style={{
-        padding: "18px",
-
-        borderRadius: "20px",
-
-        maxWidth: "260px",
-
-        background: "rgba(255,255,255,0.18)",
+        padding: "14px",
+        borderRadius: "18px",
+        maxWidth: "240px",
       }}
     >
 
-      {/* Title */}
+      {/* TITLE */}
       <h3
         style={{
           fontFamily: "var(--font-display)",
-
-          fontSize: "32px",
-
-          lineHeight: 1,
-
+          fontSize: "21px",
+          lineHeight: "1",
           fontWeight: 400,
-
-          marginBottom: "14px",
-
+          marginBottom: "10px",
           color: "var(--color-ink)",
         }}
       >
         {title}
       </h3>
 
-      {/* Description */}
+      {/* DESCRIPTION */}
       <p
         style={{
-          fontSize: "14px",
-
-          lineHeight: "1.9",
-
+          fontSize: "12px",
+          lineHeight: "1.7",
           color: "var(--color-ink-dim)",
-
-          marginBottom: "18px",
+          marginBottom: "14px",
         }}
       >
         {description}
       </p>
 
-      {/* 9:16 Image */}
+      {/* IMAGE */}
       <div
         style={{
           width: "100%",
-
           aspectRatio: "1 / 1",
-
-          borderRadius: "18px",
-
+          borderRadius: "14px",
           overflow: "hidden",
-
           background:
             "linear-gradient(135deg, var(--color-pink-1), var(--color-bg-neutral))",
-
-          position: "relative",
         }}
-      >
-
-        {/* Gradient Overlay */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-
-            background:
-              "linear-gradient(to top, rgba(0,0,0,0.18), transparent)",
-
-            pointerEvents: "none",
-          }}
-        />
-
-      </div>
+      />
 
     </article>
   );
