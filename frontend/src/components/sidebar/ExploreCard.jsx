@@ -65,10 +65,10 @@ export default function ExploreCard() {
         />
 
         <ExploreItem
-          number="04."
-          label="Certificates"
-          to="/certificates"
-        />
+  number="04."
+  label="GitHub"
+  to="/github"
+/>
 
         <ExploreItem
           number="05."

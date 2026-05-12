@@ -5,6 +5,7 @@ import MainLayout from "./layouts/MainLayout";
 import Projects from "./pages/Projects";
 import About from "./pages/About";
 import Skills from "./pages/Skills";
+import Github from "./pages/Github";
 import Certificates from "./pages/Certificates";
 import Education from "./pages/Education";
 
@@ -20,6 +21,7 @@ function App() {
 
           {/* Other Pages */}
           <Route path="about" element={<About />} />
+          <Route path="github" element={<Github />} />
           <Route path="skills" element={<Skills />} />
           <Route path="certificates" element={<Certificates />} />
           <Route path="education" element={<Education />} />
