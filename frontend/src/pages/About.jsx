@@ -89,27 +89,49 @@ export default function About() {
       </section>
 
       {/* IMAGE STRIP */}
-      <section
-        style={{
-          marginBottom: "90px",
-        }}
-      >
+      {/* IMAGE STRIP */}
+<section
+  style={{
+    marginBottom: "90px",
+  }}
+>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 2.1fr 1fr",
-            gap: "20px",
-          }}
-        >
+  <div
+    style={{
+      display: "grid",
 
-          <ImageCard height="340px" />
-          <ImageCard height="340px" />
-          <ImageCard height="340px" />
+      gridTemplateColumns: "1fr 2.1fr 1fr",
 
-        </div>
+      gap: "24px",
 
-      </section>
+      alignItems: "center",
+    }}
+  >
+
+    {/* Left */}
+    <ImageCard
+      height="330px"
+      image="/images/about-1.jpg"
+      rotate="-3deg"
+    />
+
+    {/* Center */}
+    <ImageCard
+      height="360px"
+      image="/images/about-2.jpg"
+      rotate="1.5deg"
+    />
+
+    {/* Right */}
+    <ImageCard
+      height="330px"
+      image="/images/about-3.jpg"
+      rotate="-2deg"
+    />
+
+  </div>
+
+</section>
 
       {/* MY JOURNEY */}
       <section
@@ -167,18 +189,43 @@ export default function About() {
 
 /* IMAGE CARD */
 
-function ImageCard({ height }) {
+function ImageCard({
+  image,
+  height,
+  rotate = "0deg",
+}) {
   return (
     <div
-      className="editorial-surface soft-hover"
+      className="soft-hover"
       style={{
         height,
-        borderRadius: "18px",
+
+        borderRadius: "20px",
+
         overflow: "hidden",
-        background:
-          "linear-gradient(135deg, var(--color-pink-1), var(--color-bg-neutral))",
+
+        position: "relative",
+
+        transform: `rotate(${rotate})`,
+
+        transition: "transform 0.35s ease",
+
+        boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
       }}
-    />
+    >
+
+      <img
+        src={image}
+        alt=""
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          display: "block",
+        }}
+      />
+
+    </div>
   );
 }
 
