@@ -547,26 +547,48 @@ function InfoCard({
       </p>
 
       {/* IMAGE */}
-      <div
-        style={{
-          width: "100%",
+      {/* IMAGE */}
+<div
+  style={{
+    width: "100%",
 
-          aspectRatio:
-            mobile
-              ? "16 / 9"
-              : "1 / 1",
+    aspectRatio:
+      mobile
+        ? "16 / 9"
+        : "1 / 1",
 
-          borderRadius:
-            mobile
-              ? "18px"
-              : "14px",
+    borderRadius:
+      mobile
+        ? "18px"
+        : "14px",
 
-          overflow: "hidden",
+    overflow: "hidden",
+  }}
+>
 
-          background:
-            "linear-gradient(135deg, var(--color-pink-1), var(--color-bg-neutral))",
-        }}
-      />
+  <img
+    src={
+      title === "SKCET"
+        ? "/images/skcet.jpg"
+        : title === "Full Stack"
+        ? "/images/fullstack.avif"
+        : "/images/school.png"
+    }
+
+    alt={title}
+
+    style={{
+      width: "100%",
+
+      height: "100%",
+
+      objectFit: "cover",
+
+      display: "block",
+    }}
+  />
+
+</div>
 
     </article>
   );
