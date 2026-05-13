@@ -1,83 +1,148 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
+
 import { AnimatePresence } from "framer-motion";
-import { useState } from "react";
-import { useLocation } from "react-router-dom";
+
+import {
+  useEffect,
+  useState,
+} from "react";
+
+import CommandPalette from "../components/shared/CommandPalette";
+
 import PageTransition from "../components/effects/PageTransition";
+
+import NoiseOverlay from "../components/effects/NoiseOverlay";
+
 import Sidebar from "../components/sidebar/Sidebar";
+
+import FloatingDock from "../components/shared/FloatingDock";
+
 import Footer from "../components/shared/Footer";
+
 import MusicPlayer from "../components/shared/MusicPlayer";
+
 import CustomCursor from "../components/effects/CustomCursor";
+
 import Starfield from "../components/effects/Starfield";
+
 import MouseGlow from "../components/effects/MouseGlow";
 
+import Loader from "../components/effects/Loader";
+
 export default function MainLayout() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+
+  const [menuOpen, setMenuOpen] =
+    useState(false);
+
+  const [loading, setLoading] =
+    useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+
+    return () =>
+      clearTimeout(timer);
+  }, []);
+
+  /* LOADER */
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <>
       <Starfield />
+
       <MouseGlow />
+
+      <NoiseOverlay />
+
       <CustomCursor />
+
       <MusicPlayer />
 
+      <FloatingDock />
+
+      <CommandPalette />
+
       {/* MOBILE TOPBAR */}
-<div
-  className="mobile-topbar"
-  style={{
-    position: "fixed",
+      <div
+        className="mobile-topbar"
+        style={{
+          position: "fixed",
 
-    top: 0,
+          top: 0,
 
-    left: 0,
+          left: 0,
 
-    right: 0,
+          right: 0,
 
-    height: "72px",
+          height: "72px",
 
-    padding: "0 24px",
+          padding: "0 24px",
 
-    background: "rgba(246,238,241,0.82)",
+          background:
+            "rgba(246,238,241,0.82)",
 
-    backdropFilter: "blur(18px)",
+          backdropFilter: "blur(18px)",
 
-    display: "none",
+          display: "none",
 
-    alignItems: "center",
+          alignItems: "center",
 
-    justifyContent: "space-between",
+          justifyContent:
+            "space-between",
 
-    zIndex: 200,
-  }}
->
+          zIndex: 200,
+        }}
+      >
 
-  <h2
-    style={{
-      fontFamily: "var(--font-display)",
+        {/* LOGO */}
+        <h2
+          style={{
+            fontFamily:
+              "var(--font-display)",
 
-      fontSize: "34px",
+            fontSize: "34px",
 
-      fontWeight: 400,
-    }}
-  >
-    Kishor
-  </h2>
+            fontWeight: 400,
 
-  <button
-    onClick={() => setMenuOpen(!menuOpen)}
-    style={{
-      fontFamily: "var(--font-mono)",
+            color:
+              "var(--color-ink)",
+          }}
+        >
+          Kishor
+        </h2>
 
-      fontSize: "13px",
+        {/* MENU BUTTON */}
+        <button
+          onClick={() =>
+            setMenuOpen(
+              !menuOpen
+            )
+          }
+          style={{
+            fontFamily:
+              "var(--font-mono)",
 
-      letterSpacing: "0.12em",
+            fontSize: "13px",
 
-      color: "var(--color-ink)",
-    }}
-  >
-    MENU
-  </button>
+            letterSpacing:
+              "0.12em",
 
-</div>
+            color:
+              "var(--color-ink)",
+          }}
+        >
+          {menuOpen
+            ? "CLOSE"
+            : "MENU"}
+        </button>
+
+      </div>
 
       {/* PAGE */}
       <div
@@ -92,9 +157,11 @@ export default function MainLayout() {
 
         {/* SIDEBAR */}
         <Sidebar
-  menuOpen={menuOpen}
-  setMenuOpen={setMenuOpen}
-/>
+          menuOpen={menuOpen}
+          setMenuOpen={
+            setMenuOpen
+          }
+        />
 
         {/* MAIN SIDE */}
         <div
@@ -105,7 +172,8 @@ export default function MainLayout() {
 
             display: "flex",
 
-            flexDirection: "column",
+            flexDirection:
+              "column",
           }}
         >
 
@@ -118,13 +186,19 @@ export default function MainLayout() {
               minWidth: 0,
             }}
           >
+
             <AnimatePresence mode="wait">
 
-  <PageTransition key={location.pathname}>
-    <Outlet />
-  </PageTransition>
+              <PageTransition
+                key={
+                  location.pathname
+                }
+              >
+                <Outlet />
+              </PageTransition>
 
-</AnimatePresence>
+            </AnimatePresence>
+
           </main>
 
         </div>

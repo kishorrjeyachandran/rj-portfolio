@@ -9,16 +9,23 @@ export default function MusicPlayer() {
 
   const playerRef = useRef(null);
 
-  const [playing, setPlaying] = useState(false);
+  const [playing, setPlaying] =
+    useState(false);
 
-  const [currentSong, setCurrentSong] = useState(0);
+  const [currentSong, setCurrentSong] =
+    useState(0);
 
-  const [position, setPosition] = useState({
-    x: 340,
-    y: window.innerHeight - 220,
-  });
+  const [position, setPosition] =
+    useState({
+      x: 340,
+      y: window.innerHeight - 220,
+    });
 
-  const [dragging, setDragging] = useState(false);
+  const [dragging, setDragging] =
+    useState(false);
+
+  const [expanded, setExpanded] =
+    useState(false);
 
   const offset = useRef({
     x: 0,
@@ -42,21 +49,29 @@ export default function MusicPlayer() {
       file: "/music/song-3.mp3",
     },
     {
-      title: "Thenmadurai Vaigai Nadhi",
+      title:
+        "Thenmadurai Vaigai Nadhi",
       artist: "Ilaiyaraaja",
       file: "/music/song-4.mp3",
     },
   ];
 
-  const song = playlist[currentSong];
+  const song =
+    playlist[currentSong];
 
+  /* DRAGGING */
   useEffect(() => {
     if (!dragging) return;
 
     const move = (e) => {
       setPosition({
-        x: e.clientX - offset.current.x,
-        y: e.clientY - offset.current.y,
+        x:
+          e.clientX -
+          offset.current.x,
+
+        y:
+          e.clientY -
+          offset.current.y,
       });
     };
 
@@ -64,9 +79,15 @@ export default function MusicPlayer() {
       setDragging(false);
     };
 
-    window.addEventListener("mousemove", move);
+    window.addEventListener(
+      "mousemove",
+      move
+    );
 
-    window.addEventListener("mouseup", stop);
+    window.addEventListener(
+      "mouseup",
+      stop
+    );
 
     return () => {
       window.removeEventListener(
@@ -81,6 +102,7 @@ export default function MusicPlayer() {
     };
   }, [dragging]);
 
+  /* AUTO PLAY NEXT */
   useEffect(() => {
     if (playing) {
       audioRef.current.play();
@@ -88,7 +110,8 @@ export default function MusicPlayer() {
   }, [currentSong]);
 
   const toggleMusic = () => {
-    if (!audioRef.current) return;
+    if (!audioRef.current)
+      return;
 
     if (playing) {
       audioRef.current.pause();
@@ -101,7 +124,8 @@ export default function MusicPlayer() {
 
   const nextSong = () => {
     setCurrentSong((prev) =>
-      prev === playlist.length - 1
+      prev ===
+      playlist.length - 1
         ? 0
         : prev + 1
     );
@@ -115,13 +139,20 @@ export default function MusicPlayer() {
     );
   };
 
-  const startDragging = (e) => {
+  const startDragging = (
+    e
+  ) => {
     const rect =
       playerRef.current.getBoundingClientRect();
 
     offset.current = {
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
+      x:
+        e.clientX -
+        rect.left,
+
+      y:
+        e.clientY -
+        rect.top,
     };
 
     setDragging(true);
@@ -138,7 +169,19 @@ export default function MusicPlayer() {
       <div
         ref={playerRef}
         className="soft-hover"
-        onMouseDown={startDragging}
+
+        onMouseEnter={() =>
+          setExpanded(true)
+        }
+
+        onMouseLeave={() =>
+          setExpanded(false)
+        }
+
+        onMouseDown={
+          startDragging
+        }
+
         style={{
           position: "fixed",
 
@@ -148,16 +191,25 @@ export default function MusicPlayer() {
 
           zIndex: 9999,
 
-          width: "280px",
+          width: expanded
+            ? "280px"
+            : "54px",
 
-          padding: "20px",
+          height: expanded
+            ? "auto"
+            : "54px",
+
+          padding: expanded
+            ? "20px"
+            : "0px",
 
           borderRadius: "28px",
 
           background:
             "rgba(255,255,255,0.22)",
 
-          backdropFilter: "blur(18px)",
+          backdropFilter:
+            "blur(18px)",
 
           border:
             "1px solid rgba(255,255,255,0.18)",
@@ -170,103 +222,185 @@ export default function MusicPlayer() {
             : "grab",
 
           userSelect: "none",
+
+          overflow: "hidden",
+
+          display: "flex",
+
+          alignItems: "center",
+
+          justifyContent:
+            "center",
+
+          transition:
+            "all 0.45s cubic-bezier(0.22,1,0.36,1)",
         }}
       >
 
-        {/* Label */}
-        <p
-          style={{
-            fontFamily: "var(--font-mono)",
-
-            fontSize: "10px",
-
-            letterSpacing: "0.14em",
-
-            textTransform: "uppercase",
-
-            color: "var(--color-ink-mute)",
-
-            marginBottom: "10px",
-          }}
-        >
-          Now Playing
-        </p>
-
-        {/* Song */}
-        <h3
-          style={{
-            fontFamily: "var(--font-display)",
-
-            fontSize: "30px",
-
-            fontWeight: 400,
-
-            color: "var(--color-ink)",
-
-            marginBottom: "4px",
-
-            lineHeight: "1",
-          }}
-        >
-          {song.title}
-        </h3>
-
-        <p
-          style={{
-            fontSize: "14px",
-
-            color: "var(--color-ink-dim)",
-
-            marginBottom: "22px",
-          }}
-        >
-          {song.artist}
-        </p>
-
-        {/* Controls */}
-        <div
-          style={{
-            display: "flex",
-
-            alignItems: "center",
-
-            gap: "10px",
-          }}
-        >
-
-          <button
-            onClick={prevSong}
-            style={controlStyle}
-          >
-            ←
-          </button>
-
-          <button
-            onClick={toggleMusic}
+        {expanded ? (
+          <div
             style={{
-              ...controlStyle,
-
-              background:
-                "var(--color-ink)",
-
-              color: "white",
-
-              padding: "12px 22px",
+              width: "100%",
             }}
           >
-            {playing
-              ? "Pause"
-              : "Play"}
-          </button>
 
-          <button
-            onClick={nextSong}
-            style={controlStyle}
+            {/* LABEL */}
+            <p
+              style={{
+                fontFamily:
+                  "var(--font-mono)",
+
+                fontSize: "10px",
+
+                letterSpacing:
+                  "0.14em",
+
+                textTransform:
+                  "uppercase",
+
+                color:
+                  "var(--color-ink-mute)",
+
+                marginBottom:
+                  "10px",
+              }}
+            >
+              Now Playing
+            </p>
+
+            {/* SONG */}
+            <h3
+              style={{
+                fontFamily:
+                  "var(--font-display)",
+
+                fontSize: "30px",
+
+                fontWeight: 400,
+
+                color:
+                  "var(--color-ink)",
+
+                marginBottom:
+                  "4px",
+
+                lineHeight:
+                  "1",
+              }}
+            >
+              {song.title}
+            </h3>
+
+            <p
+              style={{
+                fontSize: "14px",
+
+                color:
+                  "var(--color-ink-dim)",
+
+                marginBottom:
+                  "22px",
+              }}
+            >
+              {song.artist}
+            </p>
+
+            {/* CONTROLS */}
+            <div
+              style={{
+                display: "flex",
+
+                alignItems:
+                  "center",
+
+                gap: "10px",
+              }}
+            >
+
+              <button
+                onClick={
+                  prevSong
+                }
+                style={
+                  controlStyle
+                }
+              >
+                ←
+              </button>
+
+              <button
+                onClick={
+                  toggleMusic
+                }
+                style={{
+                  ...controlStyle,
+
+                  background:
+                    "var(--color-ink)",
+
+                  color:
+                    "white",
+
+                  padding:
+                    "12px 22px",
+                }}
+              >
+                {playing
+                  ? "Pause"
+                  : "Play"}
+              </button>
+
+              <button
+                onClick={
+                  nextSong
+                }
+                style={
+                  controlStyle
+                }
+              >
+                →
+              </button>
+
+            </div>
+
+          </div>
+        ) : (
+          /* MINI MODE */
+          <div
+            style={{
+              width: "100%",
+
+              height: "100%",
+
+              display: "flex",
+
+              alignItems:
+                "center",
+
+              justifyContent:
+                "center",
+            }}
           >
-            →
-          </button>
 
-        </div>
+            <div
+              style={{
+                width: "14px",
+
+                height: "14px",
+
+                borderRadius:
+                  "999px",
+
+                background:
+                  "var(--color-ink)",
+
+                boxShadow:
+                  "0 0 18px rgba(191,90,122,0.35)",
+              }}
+            />
+
+          </div>
+        )}
 
       </div>
     </>
@@ -283,9 +417,11 @@ const controlStyle = {
   background:
     "rgba(255,255,255,0.4)",
 
-  backdropFilter: "blur(10px)",
+  backdropFilter:
+    "blur(10px)",
 
-  fontFamily: "var(--font-mono)",
+  fontFamily:
+    "var(--font-mono)",
 
   fontSize: "12px",
 
