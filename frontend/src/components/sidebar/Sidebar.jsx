@@ -54,7 +54,12 @@ export default function Sidebar({
       ? "78vw"
       : "300px",
 
-  minHeight: "100vh",
+  maxWidth:
+    window.innerWidth <= 768
+      ? "340px"
+      : "300px",
+
+  height: "100vh",
 
   overflowY: "auto",
 
@@ -73,6 +78,8 @@ export default function Sidebar({
 
   left: 0,
 
+  zIndex: 300,
+
   transition:
     "transform 0.45s cubic-bezier(0.22,1,0.36,1)",
 
@@ -82,8 +89,6 @@ export default function Sidebar({
         ? "translateX(0)"
         : "translateX(-100%)"
       : "translateX(0)",
-
-  zIndex: 300,
 
   boxShadow:
     window.innerWidth <= 768 &&

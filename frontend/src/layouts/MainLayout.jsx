@@ -162,12 +162,10 @@ export default function MainLayout() {
       {/* PAGE */}
       <div
         style={{
-          display: "flex",
+  minHeight: "100vh",
 
-          alignItems: "stretch",
-
-          minHeight: "100vh",
-        }}
+  position: "relative",
+}}
       >
 
         {/* MOBILE OVERLAY */}
@@ -222,11 +220,21 @@ export default function MainLayout() {
 
 {/* SIDEBAR */}
         <Sidebar
-          menuOpen={menuOpen}
-          setMenuOpen={
-            setMenuOpen
-          }
-        />
+  menuOpen={menuOpen}
+  setMenuOpen={setMenuOpen}
+/>
+
+<div
+  style={{
+    flex: 1,
+
+    minWidth: 0,
+
+    display: "flex",
+
+    flexDirection: "column",
+  }}
+>
 
         {/* MAIN SIDE */}
         <div
