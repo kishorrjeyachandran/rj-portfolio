@@ -1,3 +1,4 @@
+```jsx
 import { Outlet, useLocation } from "react-router-dom";
 
 import { AnimatePresence } from "framer-motion";
@@ -32,27 +33,39 @@ import Loader from "../components/effects/Loader";
 export default function MainLayout() {
   const location = useLocation();
 
-  useEffect(() => {
-  const titles = {
-    "/": "Kishor",
-    "/about": "About Me — Kishor",
-    "/skills": "Skills — Kishor",
-    "/projects": "Projects — Kishor",
-    "/github": "GitHub — Kishor",
-    "/resume": "Resume — Kishor",
-  };
-
-  document.title =
-    titles[location.pathname] ||
-    "Kishor";
-}, [location.pathname]);
-
   const [menuOpen, setMenuOpen] =
     useState(false);
 
   const [loading, setLoading] =
     useState(true);
 
+  /* PAGE TITLES */
+  useEffect(() => {
+    const titles = {
+      "/": "Kishor",
+
+      "/about":
+        "About Me — Kishor",
+
+      "/skills":
+        "Skills — Kishor",
+
+      "/projects":
+        "Projects — Kishor",
+
+      "/github":
+        "GitHub — Kishor",
+
+      "/resume":
+        "Resume — Kishor",
+    };
+
+    document.title =
+      titles[location.pathname] ||
+      "Kishor";
+  }, [location.pathname]);
+
+  /* LOADER */
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
@@ -62,7 +75,6 @@ export default function MainLayout() {
       clearTimeout(timer);
   }, []);
 
-  /* LOADER */
   if (loading) {
     return <Loader />;
   }
@@ -102,7 +114,8 @@ export default function MainLayout() {
           background:
             "rgba(246,238,241,0.82)",
 
-          backdropFilter: "blur(18px)",
+          backdropFilter:
+            "blur(18px)",
 
           display: "none",
 
@@ -132,29 +145,31 @@ export default function MainLayout() {
           Kishor
         </h2>
 
-        {/* MENU BUTTON */}
+        {/* MENU */}
         <button
           onClick={() =>
-  setMenuOpen(
-    !menuOpen
-  )
-}
+            setMenuOpen(
+              !menuOpen
+            )
+          }
+
           style={{
+            border: "none",
+
+            background: "none",
+
             fontFamily:
               "var(--font-mono)",
 
-            fontSize: "13px",
+            fontSize: "16px",
 
-            letterSpacing:
-              "0.12em",
+            cursor: "pointer",
 
             color:
               "var(--color-ink)",
           }}
         >
-          {menuOpen
-            ? "CLOSE"
-            : "☰"}
+          ☰
         </button>
 
       </div>
@@ -162,84 +177,54 @@ export default function MainLayout() {
       {/* PAGE */}
       <div
         style={{
-  minHeight: "100vh",
+          minHeight: "100vh",
 
-  position: "relative",
-}}
+          position: "relative",
+        }}
       >
 
         {/* MOBILE OVERLAY */}
-{
-  menuOpen &&
-  window.innerWidth <= 768 && (
-    <div
-      onClick={() =>
-        setMenuOpen(false)
-      }
+        {
+          menuOpen &&
+          window.innerWidth <=
+            768 && (
+            <div
+              onClick={() =>
+                setMenuOpen(
+                  false
+                )
+              }
 
-      style={{
-        position: "fixed",
+              style={{
+                position:
+                  "fixed",
 
-        inset: 0,
+                inset: 0,
 
-        background:
-          "rgba(0,0,0,0.16)",
+                background:
+                  "rgba(0,0,0,0.16)",
 
-        backdropFilter:
-          "blur(6px)",
+                backdropFilter:
+                  "blur(6px)",
 
-        zIndex: 250,
-      }}
-    />
-  )
-}
-{
-  menuOpen &&
-  window.innerWidth <= 768 && (
-    <div
-      onClick={() =>
-        setMenuOpen(false)
-      }
+                zIndex: 250,
+              }}
+            />
+          )
+        }
 
-      style={{
-        position: "fixed",
-
-        inset: 0,
-
-        background:
-          "rgba(0,0,0,0.16)",
-
-        backdropFilter:
-          "blur(6px)",
-
-        zIndex: 250,
-      }}
-    />
-  )
-}
-
-{/* SIDEBAR */}
+        {/* SIDEBAR */}
         <Sidebar
-  menuOpen={menuOpen}
-  setMenuOpen={setMenuOpen}
-/>
-
-<div
-  style={{
-    flex: 1,
-
-    minWidth: 0,
-
-    display: "flex",
-
-    flexDirection: "column",
-  }}
->
+          menuOpen={menuOpen}
+          setMenuOpen={
+            setMenuOpen
+          }
+        />
 
         {/* MAIN SIDE */}
         <div
           style={{
-            flex: 1,
+            width: "100%",
 
             minWidth: 0,
 
@@ -284,3 +269,4 @@ export default function MainLayout() {
     </>
   );
 }
+```

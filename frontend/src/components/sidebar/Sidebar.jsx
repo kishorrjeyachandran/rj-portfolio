@@ -45,139 +45,474 @@ export default function Sidebar({
       );
   }, []);
 
+  const mobile =
+    window.innerWidth <= 768;
+
+  /* ========================= */
+  /* MOBILE SIDEBAR */
+  /* ========================= */
+
+  if (mobile) {
+    return (
+      <aside
+        style={{
+          position: "fixed",
+
+          top: 0,
+
+          left: 0,
+
+          width: "78vw",
+
+          maxWidth: "340px",
+
+          height: "100vh",
+
+          background:
+            "var(--color-bg-light)",
+
+          zIndex: 400,
+
+          overflowY: "auto",
+
+          transform:
+            menuOpen
+              ? "translateX(0)"
+              : "translateX(-100%)",
+
+          transition:
+            "transform 0.45s cubic-bezier(0.22,1,0.36,1)",
+
+          boxShadow:
+            "20px 0 60px rgba(0,0,0,0.12)",
+        }}
+      >
+
+        <div
+          style={{
+            padding:
+              "34px 26px 42px",
+
+            minHeight:
+              "100vh",
+
+            boxSizing:
+              "border-box",
+
+            display: "flex",
+
+            flexDirection:
+              "column",
+
+            justifyContent:
+              "space-between",
+          }}
+        >
+
+          {/* TOP */}
+          <div>
+
+            {/* CLOSE */}
+            <div
+              style={{
+                display: "flex",
+
+                justifyContent:
+                  "flex-end",
+
+                marginBottom:
+                  "26px",
+              }}
+            >
+
+              <button
+                onClick={() =>
+                  setMenuOpen(false)
+                }
+
+                style={{
+                  border: "none",
+
+                  background:
+                    "none",
+
+                  fontSize: "34px",
+
+                  lineHeight: 1,
+
+                  cursor: "pointer",
+
+                  color:
+                    "var(--color-ink)",
+                }}
+              >
+                ×
+              </button>
+
+            </div>
+
+            {/* LOGO */}
+            <img
+              src="/logo.png"
+
+              alt="Logo"
+
+              style={{
+                width: "52px",
+
+                height: "52px",
+
+                objectFit:
+                  "cover",
+
+                borderRadius:
+                  "16px",
+
+                marginBottom:
+                  "28px",
+
+                boxShadow:
+                  "0 10px 30px rgba(0,0,0,0.08)",
+              }}
+            />
+
+            {/* NAME */}
+            <h1
+              style={{
+                fontFamily:
+                  "var(--font-display)",
+
+                fontSize: "64px",
+
+                lineHeight:
+                  "0.9",
+
+                fontWeight: 400,
+
+                color:
+                  "var(--color-ink)",
+
+                marginBottom:
+                  "14px",
+              }}
+            >
+              Kishor
+            </h1>
+
+            {/* ROLE */}
+            <p
+              style={{
+                fontFamily:
+                  "var(--font-mono)",
+
+                fontSize: "11px",
+
+                textTransform:
+                  "uppercase",
+
+                letterSpacing:
+                  "0.18em",
+
+                color:
+                  "var(--color-ink-mute)",
+
+                marginBottom:
+                  "34px",
+              }}
+            >
+              Full Stack Developer
+            </p>
+
+            {/* DESCRIPTION */}
+            <div
+              style={{
+                display: "flex",
+
+                flexDirection:
+                  "column",
+
+                gap: "24px",
+
+                marginBottom:
+                  "42px",
+              }}
+            >
+
+              <p
+                style={{
+                  fontSize: "15px",
+
+                  lineHeight:
+                    "1.9",
+
+                  color:
+                    "var(--color-ink-dim)",
+                }}
+              >
+                I build modern
+                full stack
+                applications
+                with immersive
+                interfaces and
+                thoughtful user
+                experiences.
+              </p>
+
+              <p
+                style={{
+                  fontSize: "15px",
+
+                  lineHeight:
+                    "1.9",
+
+                  color:
+                    "var(--color-ink-dim)",
+                }}
+              >
+                Currently
+                building
+                projects
+                focused on
+                UI/UX,
+                scalable
+                systems, and
+                creative web
+                interactions.
+              </p>
+
+            </div>
+
+            {/* EXPLORE */}
+            <ExploreCard />
+
+          </div>
+
+          {/* BOTTOM */}
+          <div
+            style={{
+              marginTop:
+                "44px",
+            }}
+          >
+
+            {/* FIND ME */}
+            <p
+              style={{
+                fontFamily:
+                  "var(--font-mono)",
+
+                fontSize: "11px",
+
+                textTransform:
+                  "uppercase",
+
+                letterSpacing:
+                  "0.18em",
+
+                color:
+                  "var(--color-ink)",
+
+                marginBottom:
+                  "16px",
+              }}
+            >
+              Find Me At
+            </p>
+
+            <div
+              style={{
+                display: "flex",
+
+                flexWrap:
+                  "wrap",
+
+                gap: "12px",
+
+                marginBottom:
+                  "34px",
+              }}
+            >
+
+              <a
+                href="mailto:rjkishorrmd@gmail.com"
+
+                target="_blank"
+
+                rel="noopener noreferrer"
+
+                style={{
+                  textDecoration:
+                    "none",
+
+                  fontFamily:
+                    "var(--font-mono)",
+
+                  fontSize: "12px",
+
+                  color:
+                    "var(--color-ink-dim)",
+                }}
+              >
+                Email
+              </a>
+
+              <a
+                href="https://linkedin.com/in/kishorrj"
+
+                target="_blank"
+
+                rel="noopener noreferrer"
+
+                style={{
+                  textDecoration:
+                    "none",
+
+                  fontFamily:
+                    "var(--font-mono)",
+
+                  fontSize: "12px",
+
+                  color:
+                    "var(--color-ink-dim)",
+                }}
+              >
+                LinkedIn
+              </a>
+
+              <a
+                href="https://github.com/kishorrjeyachandran"
+
+                target="_blank"
+
+                rel="noopener noreferrer"
+
+                style={{
+                  textDecoration:
+                    "none",
+
+                  fontFamily:
+                    "var(--font-mono)",
+
+                  fontSize: "12px",
+
+                  color:
+                    "var(--color-ink-dim)",
+                }}
+              >
+                GitHub
+              </a>
+
+            </div>
+
+            {/* CLOCK */}
+            <div
+              style={{
+                marginBottom:
+                  "18px",
+              }}
+            >
+
+              <p
+                style={{
+                  fontFamily:
+                    "var(--font-mono)",
+
+                  fontSize: "10px",
+
+                  textTransform:
+                    "uppercase",
+
+                  letterSpacing:
+                    "0.14em",
+
+                  color:
+                    "var(--color-ink-mute)",
+
+                  marginBottom:
+                    "8px",
+                }}
+              >
+                Local Time
+              </p>
+
+              <p
+                id="live-clock"
+
+                style={{
+                  fontFamily:
+                    "var(--font-mono)",
+
+                  fontSize: "20px",
+
+                  color:
+                    "var(--color-ink)",
+
+                  lineHeight: 1,
+                }}
+              >
+                --:--
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </aside>
+    );
+  }
+
+  /* ========================= */
+  /* DESKTOP SIDEBAR */
+  /* ========================= */
+
   return (
     <aside
       className="sidebar-scroll"
       style={{
-  width:
-    window.innerWidth <= 768
-      ? "78vw"
-      : "300px",
+        width: "300px",
 
-  maxWidth:
-    window.innerWidth <= 768
-      ? "340px"
-      : "300px",
+        minHeight: "100vh",
 
-  height: "100vh",
+        overflowY: "auto",
 
-  overflowY: "auto",
+        background:
+          "var(--color-bg-light)",
 
-  background:
-    "var(--color-bg-light)",
+        borderRight:
+          "1px solid rgba(45,35,41,0.05)",
 
-  borderRight:
-    "1px solid rgba(45,35,41,0.05)",
+        position: "sticky",
 
-  position:
-    window.innerWidth <= 768
-      ? "fixed"
-      : "sticky",
+        top: 0,
 
-  top: 0,
-
-  left: 0,
-
-  zIndex: 300,
-
-  transition:
-    "transform 0.45s cubic-bezier(0.22,1,0.36,1)",
-
-  transform:
-    window.innerWidth <= 768
-      ? menuOpen
-        ? "translateX(0)"
-        : "translateX(-100%)"
-      : "translateX(0)",
-
-  boxShadow:
-    window.innerWidth <= 768 &&
-    menuOpen
-      ? "20px 0 60px rgba(0,0,0,0.12)"
-      : "none",
-}}
-    >
-
-      {/* INNER */}
-      <div
-        style={{
-  width: "100%",
-
-  maxWidth:
-    window.innerWidth <= 768
-      ? "100%"
-      : "250px",
-
-  margin: "0 auto",
-
-  paddingTop:
-    window.innerWidth <= 768
-      ? "34px"
-      : "52px",
-
-  paddingBottom: "42px",
-
-  paddingLeft:
-    window.innerWidth <= 768
-      ? "26px"
-      : "0px",
-
-  paddingRight:
-    window.innerWidth <= 768
-      ? "26px"
-      : "0px",
-
-  display: "flex",
-
-  flexDirection: "column",
-
-  justifyContent: "space-between",
-
-  minHeight: "100vh",
-
-  boxSizing: "border-box",
-}}
-      >
-
-        {/* MOBILE CLOSE */}
-{
-  window.innerWidth <= 768 && (
-    <div
-      style={{
-        display: "flex",
-
-        justifyContent: "flex-end",
-
-        marginBottom: "20px",
+        zIndex: 300,
       }}
     >
 
-      <button
-        onClick={() =>
-          setMenuOpen(false)
-        }
-
+      <div
         style={{
-          border: "none",
+          width: "250px",
 
-          background: "none",
+          margin: "0 auto",
 
-          fontSize: "24px",
+          paddingTop: "52px",
 
-          cursor: "pointer",
+          paddingBottom:
+            "42px",
 
-          color:
-            "var(--color-ink)",
+          display: "flex",
 
-          lineHeight: 1,
+          flexDirection:
+            "column",
+
+          justifyContent:
+            "space-between",
+
+          minHeight: "100vh",
         }}
       >
-        ×
-      </button>
-
-    </div>
-  )
-}
 
         {/* TOP */}
         <div>
@@ -197,77 +532,26 @@ export default function Sidebar({
             }}
           >
 
-           <div
-  className="sidebar-logo-wrap"
-  style={{
-    position: "relative",
+            <img
+              src="/logo.png"
 
-    width: "52px",
+              alt="Kishor Logo"
 
-    height: "52px",
+              style={{
+                width: "42px",
 
-    borderRadius: "18px",
+                height: "42px",
 
-    display: "flex",
+                objectFit:
+                  "cover",
 
-    alignItems: "center",
+                borderRadius:
+                  "14px",
 
-    justifyContent: "center",
-
-    cursor: "pointer",
-
-    transition:
-      "all 0.45s cubic-bezier(0.22,1,0.36,1)",
-  }}
->
-
-  {/* GLOW */}
-  <div
-    className="sidebar-logo-glow"
-    style={{
-      position: "absolute",
-
-      inset: "-6px",
-
-      borderRadius: "22px",
-
-      background:
-        "radial-gradient(rgba(221,181,193,0.45), transparent 70%)",
-
-      opacity: 0,
-
-      transition:
-        "all 0.45s cubic-bezier(0.22,1,0.36,1)",
-
-      filter: "blur(12px)",
-    }}
-  />
-
-  {/* LOGO */}
-  <img
-    src="/images/logo.png"
-    alt="Kishor Logo"
-
-    className="sidebar-logo"
-
-    style={{
-      width: "42px",
-
-      height: "42px",
-
-      objectFit: "cover",
-
-      borderRadius: "14px",
-
-      transition:
-        "all 0.45s cubic-bezier(0.22,1,0.36,1)",
-
-      boxShadow:
-        "0 8px 22px rgba(0,0,0,0.08)",
-    }}
-  />
-
-</div>
+                boxShadow:
+                  "0 6px 18px rgba(0,0,0,0.08)",
+              }}
+            />
 
           </div>
 
@@ -398,175 +682,122 @@ export default function Sidebar({
 
           </div>
 
-          {/* LINKS */}
-          <div>
-
-            <p
-              style={{
-                fontFamily:
-                  "var(--font-mono)",
-
-                fontSize: "11px",
-
-                textTransform:
-                  "uppercase",
-
-                letterSpacing:
-                  "0.18em",
-
-                color:
-                  "var(--color-ink)",
-
-                marginBottom:
-                  "14px",
-              }}
-            >
-              Find Me At
-            </p>
-
-            <div
-              style={{
-                display: "flex",
-
-                flexWrap:
-                  "wrap",
-
-                gap: "10px",
-              }}
-            >
-
-              {/* EMAIL */}
-              <a
-                href="mailto:rjkishorrmd@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  fontFamily:
-                    "var(--font-mono)",
-
-                  fontSize:
-                    "11px",
-
-                  letterSpacing:
-                    "0.12em",
-
-                  textTransform:
-                    "uppercase",
-
-                  color:
-                    "var(--color-ink-dim)",
-
-                  textDecoration:
-                    "none",
-
-                  transition:
-                    "all 0.3s ease",
-                }}
-                onMouseEnter={(e) =>
-                  (e.target.style.color =
-                    "var(--color-ink)")
-                }
-                onMouseLeave={(e) =>
-                  (e.target.style.color =
-                    "var(--color-ink-dim)")
-                }
-              >
-                Email
-              </a>
-
-              {/* GITHUB */}
-              <a
-                href="https://github.com/kishorrjeyachandran"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  fontFamily:
-                    "var(--font-mono)",
-
-                  fontSize:
-                    "11px",
-
-                  letterSpacing:
-                    "0.12em",
-
-                  textTransform:
-                    "uppercase",
-
-                  color:
-                    "var(--color-ink-dim)",
-
-                  textDecoration:
-                    "none",
-
-                  transition:
-                    "all 0.3s ease",
-                }}
-                onMouseEnter={(e) =>
-                  (e.target.style.color =
-                    "var(--color-ink)")
-                }
-                onMouseLeave={(e) =>
-                  (e.target.style.color =
-                    "var(--color-ink-dim)")
-                }
-              >
-                GitHub
-              </a>
-
-              {/* LINKEDIN */}
-              <a
-                href="https://linkedin.com/in/kishorrj"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  fontFamily:
-                    "var(--font-mono)",
-
-                  fontSize:
-                    "11px",
-
-                  letterSpacing:
-                    "0.12em",
-
-                  textTransform:
-                    "uppercase",
-
-                  color:
-                    "var(--color-ink-dim)",
-
-                  textDecoration:
-                    "none",
-
-                  transition:
-                    "all 0.3s ease",
-                }}
-                onMouseEnter={(e) =>
-                  (e.target.style.color =
-                    "var(--color-ink)")
-                }
-                onMouseLeave={(e) =>
-                  (e.target.style.color =
-                    "var(--color-ink-dim)")
-                }
-              >
-                LinkedIn
-              </a>
-
-            </div>
-
-          </div>
-
         </div>
 
         {/* BOTTOM */}
         <div>
 
+          <p
+            style={{
+              fontFamily:
+                "var(--font-mono)",
+
+              fontSize: "11px",
+
+              textTransform:
+                "uppercase",
+
+              letterSpacing:
+                "0.18em",
+
+              color:
+                "var(--color-ink)",
+
+              marginBottom:
+                "14px",
+            }}
+          >
+            Find Me At
+          </p>
+
+          <div
+            style={{
+              display: "flex",
+
+              flexWrap:
+                "wrap",
+
+              gap: "10px",
+
+              marginBottom:
+                "24px",
+            }}
+          >
+
+            <a
+              href="mailto:rjkishorrmd@gmail.com"
+
+              target="_blank"
+
+              rel="noopener noreferrer"
+
+              style={{
+                textDecoration:
+                  "none",
+
+                fontFamily:
+                  "var(--font-mono)",
+
+                fontSize: "11px",
+
+                color:
+                  "var(--color-ink-dim)",
+              }}
+            >
+              Email
+            </a>
+
+            <a
+              href="https://github.com/kishorrjeyachandran"
+
+              target="_blank"
+
+              rel="noopener noreferrer"
+
+              style={{
+                textDecoration:
+                  "none",
+
+                fontFamily:
+                  "var(--font-mono)",
+
+                fontSize: "11px",
+
+                color:
+                  "var(--color-ink-dim)",
+              }}
+            >
+              GitHub
+            </a>
+
+            <a
+              href="https://linkedin.com/in/kishorrj"
+
+              target="_blank"
+
+              rel="noopener noreferrer"
+
+              style={{
+                textDecoration:
+                  "none",
+
+                fontFamily:
+                  "var(--font-mono)",
+
+                fontSize: "11px",
+
+                color:
+                  "var(--color-ink-dim)",
+              }}
+            >
+              LinkedIn
+            </a>
+
+          </div>
+
           {/* CLOCK */}
           <div
             style={{
-              marginTop:
-                "18px",
-
               marginBottom:
                 "18px",
             }}
@@ -583,7 +814,7 @@ export default function Sidebar({
                   "uppercase",
 
                 letterSpacing:
-                  "0.16em",
+                  "0.14em",
 
                 color:
                   "var(--color-ink-mute)",
@@ -597,6 +828,7 @@ export default function Sidebar({
 
             <p
               id="live-clock"
+
               style={{
                 fontFamily:
                   "var(--font-mono)",
