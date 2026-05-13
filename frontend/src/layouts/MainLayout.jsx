@@ -212,6 +212,10 @@ export default function MainLayout() {
 
           position:
             "relative",
+
+          display: mobile
+            ? "block"
+            : "flex",
         }}
       >
 
@@ -258,7 +262,7 @@ export default function MainLayout() {
         {/* MAIN SIDE */}
         <div
           style={{
-            width: "100%",
+            flex: 1,
 
             minWidth: 0,
 
@@ -266,11 +270,6 @@ export default function MainLayout() {
 
             flexDirection:
               "column",
-
-            marginLeft:
-              mobile
-                ? "0px"
-                : "300px",
           }}
         >
 
