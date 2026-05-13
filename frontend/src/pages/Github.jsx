@@ -192,7 +192,7 @@ export default function Github() {
 
                   fontSize:
                     mobile
-                      ? "38px"
+                      ? "24px"
                       : "30px",
 
                   fontWeight:
