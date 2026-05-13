@@ -122,19 +122,77 @@ export default function Sidebar({
             }}
           >
 
-            <div
-              style={{
-                width: "34px",
+           <div
+  className="sidebar-logo-wrap"
+  style={{
+    position: "relative",
 
-                height: "34px",
+    width: "52px",
 
-                borderRadius:
-                  "14px",
+    height: "52px",
 
-                background:
-                  "var(--color-pink-1)",
-              }}
-            />
+    borderRadius: "18px",
+
+    display: "flex",
+
+    alignItems: "center",
+
+    justifyContent: "center",
+
+    cursor: "pointer",
+
+    transition:
+      "all 0.45s cubic-bezier(0.22,1,0.36,1)",
+  }}
+>
+
+  {/* GLOW */}
+  <div
+    className="sidebar-logo-glow"
+    style={{
+      position: "absolute",
+
+      inset: "-6px",
+
+      borderRadius: "22px",
+
+      background:
+        "radial-gradient(rgba(221,181,193,0.45), transparent 70%)",
+
+      opacity: 0,
+
+      transition:
+        "all 0.45s cubic-bezier(0.22,1,0.36,1)",
+
+      filter: "blur(12px)",
+    }}
+  />
+
+  {/* LOGO */}
+  <img
+    src="/images/logo.png"
+    alt="Kishor Logo"
+
+    className="sidebar-logo"
+
+    style={{
+      width: "42px",
+
+      height: "42px",
+
+      objectFit: "cover",
+
+      borderRadius: "14px",
+
+      transition:
+        "all 0.45s cubic-bezier(0.22,1,0.36,1)",
+
+      boxShadow:
+        "0 8px 22px rgba(0,0,0,0.08)",
+    }}
+  />
+
+</div>
 
           </div>
 

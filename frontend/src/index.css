@@ -484,3 +484,33 @@ footer a:hover {
   color:
     var(--color-ink);
 }
+
+/* -------------------------------- */
+/* SIDEBAR LOGO */
+/* -------------------------------- */
+
+.sidebar-logo-wrap:hover {
+  transform:
+    translateY(-2px)
+    scale(1.08);
+}
+
+.sidebar-logo-wrap:hover .sidebar-logo {
+  transform:
+    rotate(-6deg)
+    scale(1.04);
+
+  box-shadow:
+    0 14px 30px rgba(0,0,0,0.14);
+}
+
+.sidebar-logo-wrap:hover .sidebar-logo-glow {
+  opacity: 1;
+
+  transform: scale(1.08);
+}
+
+.sidebar-logo-wrap:active {
+  transform:
+    scale(0.96);
+}

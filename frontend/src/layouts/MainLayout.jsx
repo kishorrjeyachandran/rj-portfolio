@@ -32,6 +32,21 @@ import Loader from "../components/effects/Loader";
 export default function MainLayout() {
   const location = useLocation();
 
+  useEffect(() => {
+  const titles = {
+    "/": "Kishor",
+    "/about": "About Me — Kishor",
+    "/skills": "Skills — Kishor",
+    "/projects": "Projects — Kishor",
+    "/github": "GitHub — Kishor",
+    "/resume": "Resume — Kishor",
+  };
+
+  document.title =
+    titles[location.pathname] ||
+    "Kishor";
+}, [location.pathname]);
+
   const [menuOpen, setMenuOpen] =
     useState(false);
 
