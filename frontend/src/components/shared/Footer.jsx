@@ -1,12 +1,19 @@
 export default function Footer() {
+
+  const mobile =
+    window.innerWidth <= 768;
+
   return (
     <footer
       style={{
-        background: "var(--color-ink)",
+        background:
+          "var(--color-ink)",
 
         marginTop: "0",
 
-        padding: "70px 60px",
+        padding: mobile
+          ? "52px 24px"
+          : "70px 60px",
 
         overflow: "hidden",
 
@@ -23,20 +30,27 @@ export default function Footer() {
 
           left: "10%",
 
-          width: "500px",
+          width: mobile
+            ? "260px"
+            : "500px",
 
-          height: "500px",
+          height: mobile
+            ? "260px"
+            : "500px",
 
-          borderRadius: "999px",
+          borderRadius:
+            "999px",
 
           background:
             "radial-gradient(rgba(255,255,255,0.08), transparent 70%)",
 
-          filter: "blur(20px)",
+          filter:
+            "blur(20px)",
 
           opacity: 0.6,
 
-          pointerEvents: "none",
+          pointerEvents:
+            "none",
         }}
       />
 
@@ -49,11 +63,17 @@ export default function Footer() {
 
           display: "grid",
 
-          gridTemplateColumns: "1.2fr 0.7fr 0.7fr",
+          gridTemplateColumns:
+            mobile
+              ? "1fr"
+              : "1.2fr 0.7fr 0.7fr",
 
-          gap: "40px",
-          
-          alignItems: "start",
+          gap: mobile
+            ? "42px"
+            : "40px",
+
+          alignItems:
+            "start",
         }}
       >
 
@@ -62,46 +82,66 @@ export default function Footer() {
 
           <h2
             style={{
-              fontFamily: "var(--font-display)",
+              fontFamily:
+                "var(--font-display)",
 
-              fontSize: "28px",
+              fontSize:
+                mobile
+                  ? "18px"
+                  : "28px",
 
-              lineHeight: "0.95",
+              lineHeight:
+                "0.95",
 
-              fontWeight: 400,
+              fontWeight:
+                400,
 
-              color: "white",
+              color:
+                "white",
 
-              maxWidth: "620px",
+              maxWidth:
+                "620px",
             }}
           >
+
             <span
-  style={{
-    display: "block",
-  }}
->
-  Still building.
-</span>
+              style={{
+                display:
+                  "block",
+              }}
+            >
+              Still building.
+            </span>
 
-<span
-  style={{
-    display: "block",
+            <span
+              style={{
+                display:
+                  "block",
 
-    marginLeft: "42px",
-  }}
->
-  Still exploring.
-</span>
+                marginLeft:
+                  mobile
+                    ? "18px"
+                    : "42px",
+              }}
+            >
+              Still exploring.
+            </span>
 
-<span
-  style={{
-    display: "block",
+            <span
+              style={{
+                display:
+                  "block",
 
-    marginLeft: "12px",
-  }}
->
-  Still obsessed with creating.
-</span>
+                marginLeft:
+                  mobile
+                    ? "8px"
+                    : "12px",
+              }}
+            >
+              Still obsessed
+              with creating.
+            </span>
+
           </h2>
 
         </div>
@@ -111,7 +151,8 @@ export default function Footer() {
           style={{
             display: "flex",
 
-            flexDirection: "column",
+            flexDirection:
+              "column",
 
             gap: "2px",
           }}
@@ -120,21 +161,25 @@ export default function Footer() {
           <FooterLink
             label="EMAIL"
             href="mailto:rjkishorrmd@gmail.com"
+            mobile={mobile}
           />
 
           <FooterLink
             label="LINKEDIN"
             href="https://linkedin.com/in/kishorrj"
+            mobile={mobile}
           />
 
           <FooterLink
             label="GITHUB"
             href="https://github.com/kishorrjeyachandran"
+            mobile={mobile}
           />
 
           <FooterLink
             label="X"
             href="https://x.com"
+            mobile={mobile}
           />
 
         </div>
@@ -144,51 +189,87 @@ export default function Footer() {
           style={{
             display: "flex",
 
-            flexDirection: "column",
+            flexDirection:
+              "column",
 
             gap: "2px",
           }}
         >
 
-          <FooterNav label="HOME" />
-          <FooterNav label="ABOUT ME" active />
-          <FooterNav label="PROJECTS" />
-          <FooterNav label="GITHUB" />
-          <FooterNav label="SKILLS" />
+          <FooterNav
+            label="HOME"
+            mobile={mobile}
+          />
+
+          <FooterNav
+            label="ABOUT ME"
+            active
+            mobile={mobile}
+          />
+
+          <FooterNav
+            label="PROJECTS"
+            mobile={mobile}
+          />
+
+          <FooterNav
+            label="GITHUB"
+            mobile={mobile}
+          />
+
+          <FooterNav
+            label="SKILLS"
+            mobile={mobile}
+          />
 
           <div
             style={{
-              marginTop: "28px",
+              marginTop:
+                mobile
+                  ? "20px"
+                  : "28px",
             }}
           >
 
             <button
-  onClick={() =>
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    })
-  }
-  style={{
-    fontFamily: "var(--font-mono)",
+              onClick={() =>
+                window.scrollTo({
+                  top: 0,
 
-    fontSize: "14px",
+                  behavior:
+                    "smooth",
+                })
+              }
 
-    letterSpacing: "0.12em",
+              style={{
+                fontFamily:
+                  "var(--font-mono)",
 
-    color: "rgba(255,255,255,0.72)",
+                fontSize:
+                  mobile
+                    ? "12px"
+                    : "14px",
 
-    background: "none",
+                letterSpacing:
+                  "0.12em",
 
-    border: "none",
+                color:
+                  "rgba(255,255,255,0.72)",
 
-    cursor: "pointer",
+                background:
+                  "none",
 
-    padding: 0,
-  }}
->
-  ✦ BACK TO TOP
-</button>
+                border:
+                  "none",
+
+                cursor:
+                  "pointer",
+
+                padding: 0,
+              }}
+            >
+              ✦ BACK TO TOP
+            </button>
 
           </div>
 
@@ -205,24 +286,37 @@ export default function Footer() {
 function FooterLink({
   label,
   href,
+  mobile,
 }) {
+
   return (
     <a
       href={href}
+
       target="_blank"
+
       rel="noopener noreferrer"
+
       style={{
-        textDecoration: "none",
+        textDecoration:
+          "none",
 
-        fontFamily: "var(--font-mono)",
+        fontFamily:
+          "var(--font-mono)",
 
-        fontSize: "18px",
+        fontSize:
+          mobile
+            ? "15px"
+            : "18px",
 
-        letterSpacing: "0.06em",
+        letterSpacing:
+          "0.06em",
 
-        color: "rgba(255,255,255,0.82)",
+        color:
+          "rgba(255,255,255,0.82)",
 
-        transition: "opacity 0.25s ease",
+        transition:
+          "opacity 0.25s ease",
       }}
     >
       {label}
@@ -235,15 +329,22 @@ function FooterLink({
 function FooterNav({
   label,
   active,
+  mobile,
 }) {
+
   return (
     <p
       style={{
-        fontFamily: "var(--font-mono)",
+        fontFamily:
+          "var(--font-mono)",
 
-        fontSize: "18px",
+        fontSize:
+          mobile
+            ? "15px"
+            : "18px",
 
-        letterSpacing: "0.06em",
+        letterSpacing:
+          "0.06em",
 
         color: active
           ? "white"
@@ -251,7 +352,8 @@ function FooterNav({
 
         margin: 0,
 
-        cursor: "pointer",
+        cursor:
+          "pointer",
       }}
     >
       {label}

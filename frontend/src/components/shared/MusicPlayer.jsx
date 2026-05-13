@@ -157,7 +157,8 @@ export default function MusicPlayer() {
 
     setDragging(true);
   };
-
+  if (window.innerWidth <= 768)
+  return null;
   return (
     <>
       <audio

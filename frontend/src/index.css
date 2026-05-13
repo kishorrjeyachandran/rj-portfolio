@@ -514,3 +514,40 @@ footer a:hover {
   transform:
     scale(0.96);
 }
+
+@media (max-width: 768px) {
+
+  * {
+    cursor: auto !important;
+  }
+
+  .main-content {
+    padding:
+      110px 20px 40px 20px !important;
+  }
+
+  .bento-card {
+    min-height: auto !important;
+
+    padding: 22px !important;
+  }
+
+  .bento-title {
+    font-size: 42px !important;
+  }
+
+  footer {
+    overflow: hidden !important;
+  }
+
+  .sidebar-scroll {
+    width: 100% !important;
+
+    position: fixed !important;
+
+    inset: 0 !important;
+
+    z-index: 9999 !important;
+  }
+
+}

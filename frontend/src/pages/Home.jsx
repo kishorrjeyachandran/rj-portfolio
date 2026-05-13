@@ -11,10 +11,17 @@ import { Link } from "react-router-dom";
 import Reveal from "../components/effects/Reveal";
 
 export default function Home() {
+
+  const mobile =
+    window.innerWidth <= 768;
+
   return (
     <div
       style={{
-        paddingTop: "8px",
+        paddingTop:
+          mobile
+            ? "0px"
+            : "8px",
       }}
     >
 
@@ -22,7 +29,10 @@ export default function Home() {
       <Reveal>
         <section
           style={{
-            marginBottom: "56px",
+            marginBottom:
+              mobile
+                ? "32px"
+                : "56px",
           }}
         >
 
@@ -31,7 +41,10 @@ export default function Home() {
               fontFamily:
                 "var(--font-mono)",
 
-              fontSize: "12px",
+              fontSize:
+                mobile
+                  ? "10px"
+                  : "12px",
 
               textTransform:
                 "uppercase",
@@ -42,7 +55,8 @@ export default function Home() {
               color:
                 "var(--color-ink-mute)",
 
-              marginBottom: "20px",
+              marginBottom:
+                "20px",
             }}
           >
             Full Stack Developer
@@ -53,13 +67,18 @@ export default function Home() {
               fontFamily:
                 "var(--font-display)",
 
-              fontSize: "92px",
+              fontSize:
+                mobile
+                  ? "52px"
+                  : "92px",
 
-              lineHeight: "0.9",
+              lineHeight:
+                "0.9",
 
               fontWeight: 400,
 
-              maxWidth: "900px",
+              maxWidth:
+                "900px",
 
               color:
                 "var(--color-ink)",
@@ -81,12 +100,14 @@ export default function Home() {
       <Reveal delay={0.1}>
         <section
           style={{
-            marginBottom: "34px",
+            marginBottom:
+              "34px",
           }}
         >
 
           <article
             className="editorial-surface soft-hover"
+
             style={{
               background:
                 "var(--color-ink)",
@@ -98,7 +119,9 @@ export default function Home() {
                 "22px",
 
               padding:
-                "22px 24px",
+                mobile
+                  ? "18px"
+                  : "22px 24px",
             }}
           >
 
@@ -171,7 +194,9 @@ export default function Home() {
             <p
               style={{
                 fontSize:
-                  "14px",
+                  mobile
+                    ? "13px"
+                    : "14px",
 
                 lineHeight:
                   "1.9",
@@ -202,9 +227,14 @@ export default function Home() {
           display: "grid",
 
           gridTemplateColumns:
-            "1.3fr 0.9fr",
+            mobile
+              ? "1fr"
+              : "1.3fr 0.9fr",
 
-          gap: "26px",
+          gap:
+            mobile
+              ? "18px"
+              : "26px",
 
           marginBottom:
             "120px",
@@ -216,7 +246,10 @@ export default function Home() {
           style={{
             display: "grid",
 
-            gap: "26px",
+            gap:
+              mobile
+                ? "18px"
+                : "26px",
           }}
         >
 
@@ -224,7 +257,9 @@ export default function Home() {
           <Reveal delay={0.15}>
             <Link
               to="/projects"
+
               className="bento-card"
+
               style={{
                 position:
                   "relative",
@@ -233,7 +268,9 @@ export default function Home() {
                   "hidden",
 
                 padding:
-                  "34px",
+                  mobile
+                    ? "22px"
+                    : "34px",
 
                 borderRadius:
                   "32px",
@@ -248,7 +285,9 @@ export default function Home() {
                   "1px solid rgba(255,255,255,0.14)",
 
                 minHeight:
-                  "340px",
+                  mobile
+                    ? "220px"
+                    : "340px",
               }}
             >
 
@@ -256,7 +295,16 @@ export default function Home() {
                 Featured Work
               </p>
 
-              <h2 className="bento-title">
+              <h2
+                className="bento-title"
+
+                style={{
+                  fontSize:
+                    mobile
+                      ? "42px"
+                      : "68px",
+                }}
+              >
                 Projects &
                 <br />
                 experiments.
@@ -275,7 +323,11 @@ export default function Home() {
                 }}
               >
                 <ArrowUpRight
-                  size={34}
+                  size={
+                    mobile
+                      ? 28
+                      : 34
+                  }
                 />
               </div>
 
@@ -286,9 +338,12 @@ export default function Home() {
           <Reveal delay={0.2}>
             <div
               className="bento-card"
+
               style={{
                 padding:
-                  "30px",
+                  mobile
+                    ? "22px"
+                    : "30px",
 
                 borderRadius:
                   "32px",
@@ -350,7 +405,10 @@ export default function Home() {
           style={{
             display: "grid",
 
-            gap: "26px",
+            gap:
+              mobile
+                ? "18px"
+                : "26px",
           }}
         >
 
@@ -358,9 +416,12 @@ export default function Home() {
           <Reveal delay={0.25}>
             <div
               className="bento-card"
+
               style={{
                 padding:
-                  "28px",
+                  mobile
+                    ? "22px"
+                    : "28px",
 
                 borderRadius:
                   "32px",
@@ -389,7 +450,9 @@ export default function Home() {
                     "var(--font-display)",
 
                   fontSize:
-                    "42px",
+                    mobile
+                      ? "30px"
+                      : "42px",
 
                   lineHeight:
                     "0.95",
@@ -409,10 +472,14 @@ export default function Home() {
           <Reveal delay={0.3}>
             <Link
               to="/github"
+
               className="bento-card"
+
               style={{
                 padding:
-                  "28px",
+                  mobile
+                    ? "22px"
+                    : "28px",
 
                 borderRadius:
                   "32px",
@@ -444,7 +511,9 @@ export default function Home() {
                     "var(--font-display)",
 
                   fontSize:
-                    "40px",
+                    mobile
+                      ? "30px"
+                      : "40px",
 
                   lineHeight:
                     "0.95",
@@ -464,9 +533,12 @@ export default function Home() {
           <Reveal delay={0.35}>
             <div
               className="bento-card"
+
               style={{
                 padding:
-                  "28px",
+                  mobile
+                    ? "22px"
+                    : "28px",
 
                 borderRadius:
                   "32px",
@@ -495,7 +567,9 @@ export default function Home() {
                     "var(--font-display)",
 
                   fontSize:
-                    "36px",
+                    mobile
+                      ? "28px"
+                      : "36px",
 
                   lineHeight:
                     "1",
@@ -517,10 +591,14 @@ export default function Home() {
           <Reveal delay={0.4}>
             <Link
               to="/resume"
+
               className="bento-card"
+
               style={{
                 padding:
-                  "28px",
+                  mobile
+                    ? "22px"
+                    : "28px",
 
                 borderRadius:
                   "32px",
@@ -552,7 +630,9 @@ export default function Home() {
                     "var(--font-display)",
 
                   fontSize:
-                    "36px",
+                    mobile
+                      ? "28px"
+                      : "36px",
 
                   lineHeight:
                     "1",
