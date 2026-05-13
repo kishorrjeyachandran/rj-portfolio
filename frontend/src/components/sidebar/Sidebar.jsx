@@ -161,7 +161,7 @@ export default function Sidebar({
 
             {/* LOGO */}
             <img
-              src="/logo.png"
+              src="/images/logo.png"
 
               alt="Logo"
 
@@ -480,13 +480,9 @@ export default function Sidebar({
       className="sidebar-scroll"
 
       style={{
-        width: mobile
-          ? "0px"
-          : "300px",
+        width: "300px",
 
-        minWidth: mobile
-          ? "0px"
-          : "300px",
+        minWidth: "300px",
 
         minHeight: "100vh",
 
@@ -496,19 +492,13 @@ export default function Sidebar({
           "var(--color-bg-light)",
 
         borderRight:
-          mobile
-            ? "none"
-            : "1px solid rgba(45,35,41,0.05)",
+          "1px solid rgba(45,35,41,0.05)",
 
         position: "sticky",
 
         top: 0,
 
         zIndex: 300,
-
-        display: mobile
-          ? "none"
-          : "block",
       }}
     >
 
@@ -554,7 +544,7 @@ export default function Sidebar({
           >
 
             <img
-              src="/logo.png"
+              src="/images/logo.png"
 
               alt="Kishor Logo"
 
@@ -629,11 +619,70 @@ export default function Sidebar({
               Full Stack Developer
             </p>
 
+            {/* DESCRIPTION */}
+            <div
+              style={{
+                display: "flex",
+
+                flexDirection:
+                  "column",
+
+                gap: "18px",
+              }}
+            >
+
+              <p
+                style={{
+                  fontSize: "15px",
+
+                  lineHeight:
+                    "1.7",
+
+                  color:
+                    "var(--color-ink-dim)",
+                }}
+              >
+                I build modern
+                full stack
+                applications
+                with immersive
+                interfaces and
+                thoughtful user
+                experiences.
+              </p>
+
+              <p
+                style={{
+                  fontSize: "15px",
+
+                  lineHeight:
+                    "1.7",
+
+                  color:
+                    "var(--color-ink-dim)",
+                }}
+              >
+                Currently
+                building
+                projects
+                focused on
+                UI/UX,
+                scalable
+                systems, and
+                creative web
+                interactions.
+              </p>
+
+            </div>
+
           </div>
 
           {/* EXPLORE */}
           <div
             style={{
+              marginBottom:
+                "24px",
+
               display: "flex",
 
               justifyContent:
@@ -644,6 +693,197 @@ export default function Sidebar({
             <ExploreCard />
 
           </div>
+
+        </div>
+
+        {/* BOTTOM */}
+        <div>
+
+          {/* FIND ME */}
+          <p
+            style={{
+              fontFamily:
+                "var(--font-mono)",
+
+              fontSize: "11px",
+
+              textTransform:
+                "uppercase",
+
+              letterSpacing:
+                "0.18em",
+
+              color:
+                "var(--color-ink)",
+
+              marginBottom:
+                "14px",
+            }}
+          >
+            Find Me At
+          </p>
+
+          <div
+            style={{
+              display: "flex",
+
+              flexWrap:
+                "wrap",
+
+              gap: "10px",
+
+              marginBottom:
+                "24px",
+            }}
+          >
+
+            <a
+              href="mailto:rjkishorrmd@gmail.com"
+
+              target="_blank"
+
+              rel="noopener noreferrer"
+
+              style={{
+                textDecoration:
+                  "none",
+
+                fontFamily:
+                  "var(--font-mono)",
+
+                fontSize: "11px",
+
+                color:
+                  "var(--color-ink-dim)",
+              }}
+            >
+              Email
+            </a>
+
+            <a
+              href="https://github.com/kishorrjeyachandran"
+
+              target="_blank"
+
+              rel="noopener noreferrer"
+
+              style={{
+                textDecoration:
+                  "none",
+
+                fontFamily:
+                  "var(--font-mono)",
+
+                fontSize: "11px",
+
+                color:
+                  "var(--color-ink-dim)",
+              }}
+            >
+              GitHub
+            </a>
+
+            <a
+              href="https://linkedin.com/in/kishorrj"
+
+              target="_blank"
+
+              rel="noopener noreferrer"
+
+              style={{
+                textDecoration:
+                  "none",
+
+                fontFamily:
+                  "var(--font-mono)",
+
+                fontSize: "11px",
+
+                color:
+                  "var(--color-ink-dim)",
+              }}
+            >
+              LinkedIn
+            </a>
+
+          </div>
+
+          {/* CLOCK */}
+          <div
+            style={{
+              marginBottom:
+                "18px",
+            }}
+          >
+
+            <p
+              style={{
+                fontFamily:
+                  "var(--font-mono)",
+
+                fontSize: "10px",
+
+                textTransform:
+                  "uppercase",
+
+                letterSpacing:
+                  "0.14em",
+
+                color:
+                  "var(--color-ink-mute)",
+
+                marginBottom:
+                  "6px",
+              }}
+            >
+              Local Time
+            </p>
+
+            <p
+              id="live-clock"
+
+              style={{
+                fontFamily:
+                  "var(--font-mono)",
+
+                fontSize: "18px",
+
+                fontWeight: 500,
+
+                letterSpacing:
+                  "-0.03em",
+
+                color:
+                  "var(--color-ink-mute)",
+
+                lineHeight: 1,
+              }}
+            >
+              --:--
+            </p>
+
+          </div>
+
+          {/* STATUS */}
+          <p
+            style={{
+              fontFamily:
+                "var(--font-mono)",
+
+              fontSize: "10px",
+
+              textTransform:
+                "uppercase",
+
+              letterSpacing:
+                "0.14em",
+
+              color:
+                "var(--color-ink-mute)",
+            }}
+          >
+            ● All Systems Operational
+          </p>
 
         </div>
 
