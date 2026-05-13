@@ -135,10 +135,10 @@ export default function MainLayout() {
         {/* MENU BUTTON */}
         <button
           onClick={() =>
-            setMenuOpen(
-              !menuOpen
-            )
-          }
+  setMenuOpen(
+    !menuOpen
+  )
+}
           style={{
             fontFamily:
               "var(--font-mono)",
@@ -169,6 +169,32 @@ export default function MainLayout() {
           minHeight: "100vh",
         }}
       >
+
+        {/* MOBILE OVERLAY */}
+{
+  menuOpen &&
+  window.innerWidth <= 768 && (
+    <div
+      onClick={() =>
+        setMenuOpen(false)
+      }
+
+      style={{
+        position: "fixed",
+
+        inset: 0,
+
+        background:
+          "rgba(0,0,0,0.16)",
+
+        backdropFilter:
+          "blur(6px)",
+
+        zIndex: 250,
+      }}
+    />
+  )
+}
 
         {/* SIDEBAR */}
         <Sidebar

@@ -49,35 +49,48 @@ export default function Sidebar({
     <aside
       className="sidebar-scroll"
       style={{
-        width: "300px",
+  width:
+    window.innerWidth <= 768
+      ? "78%"
+      : "300px",
 
-        minHeight: "100vh",
+  minHeight: "100vh",
 
-        overflowY: "auto",
+  overflowY: "auto",
 
-        background:
-          "var(--color-bg-light)",
+  background:
+    "var(--color-bg-light)",
 
-        borderRight:
-          "1px solid rgba(45,35,41,0.05)",
+  borderRight:
+    "1px solid rgba(45,35,41,0.05)",
 
-        position: "sticky",
+  position:
+    window.innerWidth <= 768
+      ? "fixed"
+      : "sticky",
 
-        top: 0,
+  top: 0,
 
-        transition:
-          "transform 0.45s cubic-bezier(0.22,1,0.36,1)",
+  left: 0,
 
-        transform:
-          window.innerWidth <=
-          768
-            ? menuOpen
-              ? "translateX(0)"
-              : "translateX(-100%)"
-            : "translateX(0)",
+  transition:
+    "transform 0.45s cubic-bezier(0.22,1,0.36,1)",
 
-        zIndex: 300,
-      }}
+  transform:
+    window.innerWidth <= 768
+      ? menuOpen
+        ? "translateX(0)"
+        : "translateX(-100%)"
+      : "translateX(0)",
+
+  zIndex: 300,
+
+  boxShadow:
+  window.innerWidth <= 768 &&
+  menuOpen
+    ? "20px 0 60px rgba(0,0,0,0.12)"
+    : "none",
+}}
     >
 
       {/* INNER */}
