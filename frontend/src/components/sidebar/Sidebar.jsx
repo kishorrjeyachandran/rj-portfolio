@@ -51,7 +51,7 @@ export default function Sidebar({
       style={{
   width:
     window.innerWidth <= 768
-      ? "78%"
+      ? "72%"
       : "300px",
 
   minHeight: "100vh",
@@ -86,10 +86,10 @@ export default function Sidebar({
   zIndex: 300,
 
   boxShadow:
-  window.innerWidth <= 768 &&
-  menuOpen
-    ? "20px 0 60px rgba(0,0,0,0.12)"
-    : "none",
+    window.innerWidth <= 768 &&
+    menuOpen
+      ? "20px 0 60px rgba(0,0,0,0.12)"
+      : "none",
 }}
     >
 
@@ -116,6 +116,46 @@ export default function Sidebar({
           minHeight: "100vh",
         }}
       >
+
+        {/* MOBILE CLOSE */}
+{
+  window.innerWidth <= 768 && (
+    <div
+      style={{
+        display: "flex",
+
+        justifyContent: "flex-end",
+
+        marginBottom: "20px",
+      }}
+    >
+
+      <button
+        onClick={() =>
+          setMenuOpen(false)
+        }
+
+        style={{
+          border: "none",
+
+          background: "none",
+
+          fontSize: "24px",
+
+          cursor: "pointer",
+
+          color:
+            "var(--color-ink)",
+
+          lineHeight: 1,
+        }}
+      >
+        ×
+      </button>
+
+    </div>
+  )
+}
 
         {/* TOP */}
         <div>

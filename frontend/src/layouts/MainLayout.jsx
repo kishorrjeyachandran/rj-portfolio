@@ -195,8 +195,32 @@ export default function MainLayout() {
     />
   )
 }
+{
+  menuOpen &&
+  window.innerWidth <= 768 && (
+    <div
+      onClick={() =>
+        setMenuOpen(false)
+      }
 
-        {/* SIDEBAR */}
+      style={{
+        position: "fixed",
+
+        inset: 0,
+
+        background:
+          "rgba(0,0,0,0.16)",
+
+        backdropFilter:
+          "blur(6px)",
+
+        zIndex: 250,
+      }}
+    />
+  )
+}
+
+{/* SIDEBAR */}
         <Sidebar
           menuOpen={menuOpen}
           setMenuOpen={
