@@ -51,7 +51,7 @@ export default function Resume() {
 
             fontSize:
               mobile
-                ? "58px"
+                ? "52px"
                 : "42px",
 
             lineHeight:

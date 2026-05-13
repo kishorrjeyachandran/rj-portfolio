@@ -190,7 +190,7 @@ export default function Sidebar({
                 fontFamily:
                   "var(--font-display)",
 
-                fontSize: "64px",
+                fontSize: "52px",
 
                 lineHeight:
                   "0.9",

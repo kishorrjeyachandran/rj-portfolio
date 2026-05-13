@@ -82,7 +82,7 @@ export default function Github() {
 
             fontSize:
               mobile
-                ? "56px"
+                ? "46px"
                 : "38px",
 
             lineHeight:

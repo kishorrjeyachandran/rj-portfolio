@@ -112,7 +112,7 @@ export default function Home() {
               fontFamily:
                 "var(--font-display)",
 
-              fontSize: "68px",
+              fontSize: "52px",
 
               lineHeight: "0.88",
 
