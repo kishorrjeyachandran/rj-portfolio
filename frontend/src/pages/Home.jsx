@@ -1,9 +1,6 @@
 import {
-  FolderGit2,
-  Music4,
   Sparkles,
   ArrowUpRight,
-  FileText,
 } from "lucide-react";
 
 import { Link } from "react-router-dom";
@@ -15,24 +12,76 @@ export default function Home() {
   const mobile =
     window.innerWidth <= 768;
 
+  const projects = [
+    {
+      number: "01",
+
+      title: "ThoughtNest",
+
+      tag: "Internship",
+
+      description:
+        "A modern journaling platform with immersive writing experience.",
+
+      image:
+        "/images/projects/thoughtnest.jpg",
+    },
+
+    {
+      number: "02",
+
+      title: "Cartify",
+
+      tag: "Shipped",
+
+      description:
+        "A premium shopping experience with cinematic product interactions.",
+
+      image:
+        "/images/projects/cartify.jpg",
+    },
+
+    {
+      number: "03",
+
+      title: "Tickd",
+
+      tag: "Productivity",
+
+      description:
+        "A cinematic task management platform focused on simplicity.",
+
+      image:
+        "/images/projects/tickd.jpg",
+    },
+
+    {
+      number: "04",
+
+      title: "CareerGen",
+
+      tag: "Side Project",
+
+      description:
+        "An AI-powered career assistant for students and developers.",
+
+      image:
+        "/images/projects/careergen.jpg",
+    },
+  ];
+
   return (
     <div
       style={{
-        paddingTop:
-          mobile
-            ? "0px"
-            : "8px",
+        width: "100%",
       }}
     >
 
-      {/* HERO */}
-      <Reveal>
+      {/* MOBILE HERO */}
+      {mobile && (
         <section
           style={{
-            marginBottom:
-              mobile
-                ? "32px"
-                : "56px",
+            marginBottom: "30px",
           }}
         >
 
@@ -41,22 +90,18 @@ export default function Home() {
               fontFamily:
                 "var(--font-mono)",
 
-              fontSize:
-                mobile
-                  ? "10px"
-                  : "12px",
-
-              textTransform:
-                "uppercase",
+              fontSize: "11px",
 
               letterSpacing:
                 "0.14em",
 
+              textTransform:
+                "uppercase",
+
               color:
                 "var(--color-ink-mute)",
 
-              marginBottom:
-                "20px",
+              marginBottom: "18px",
             }}
           >
             Full Stack Developer
@@ -67,61 +112,110 @@ export default function Home() {
               fontFamily:
                 "var(--font-display)",
 
-              fontSize:
-                mobile
-                  ? "52px"
-                  : "92px",
+              fontSize: "68px",
 
-              lineHeight:
-                "0.9",
+              lineHeight: "0.88",
 
               fontWeight: 400,
 
-              maxWidth:
-                "900px",
+              color:
+                "var(--color-ink)",
+
+              marginBottom: "18px",
+            }}
+          >
+            Kishor
+          </h1>
+
+          <p
+            style={{
+              fontSize: "15px",
+
+              lineHeight: "1.9",
+
+              color:
+                "var(--color-ink-dim)",
+
+              maxWidth: "95%",
+            }}
+          >
+            Building immersive
+            full stack digital
+            experiences with
+            editorial-inspired
+            interfaces.
+          </p>
+
+        </section>
+      )}
+
+      {/* DESKTOP HERO */}
+      {!mobile && (
+        <section
+          style={{
+            marginBottom: "56px",
+          }}
+        >
+
+          <h1
+            style={{
+              fontFamily:
+                "var(--font-display)",
+
+              fontSize: "92px",
+
+              lineHeight: "0.9",
+
+              fontWeight: 400,
+
+              maxWidth: "920px",
 
               color:
                 "var(--color-ink)",
             }}
           >
             Building
-            <br />
             thoughtful
-            <br />
             digital
-            <br />
             experiences.
           </h1>
 
         </section>
-      </Reveal>
+      )}
 
       {/* LATEST LOG */}
-      <Reveal delay={0.1}>
+      <Reveal>
         <section
           style={{
             marginBottom:
-              "34px",
+              mobile
+                ? "28px"
+                : "44px",
           }}
         >
 
-          <article
-            className="editorial-surface soft-hover"
-
+          <div
             style={{
               background:
                 "var(--color-ink)",
 
-              color:
-                "var(--color-ink-inverted)",
-
               borderRadius:
-                "22px",
+                mobile
+                  ? "32px"
+                  : "34px",
 
               padding:
                 mobile
-                  ? "18px"
-                  : "22px 24px",
+                  ? "26px"
+                  : "30px",
+
+              color: "white",
+
+              position:
+                "relative",
+
+              overflow:
+                "hidden",
             }}
           >
 
@@ -137,7 +231,7 @@ export default function Home() {
                   "space-between",
 
                 marginBottom:
-                  "14px",
+                  "24px",
               }}
             >
 
@@ -148,7 +242,7 @@ export default function Home() {
                   alignItems:
                     "center",
 
-                  gap: "10px",
+                  gap: "14px",
                 }}
               >
 
@@ -158,13 +252,15 @@ export default function Home() {
                       "var(--font-mono)",
 
                     fontSize:
-                      "12px",
+                      mobile
+                        ? "11px"
+                        : "12px",
+
+                    letterSpacing:
+                      "0.14em",
 
                     textTransform:
                       "uppercase",
-
-                    letterSpacing:
-                      "0.12em",
                   }}
                 >
                   Latest Log
@@ -173,10 +269,11 @@ export default function Home() {
                 <p
                   style={{
                     fontSize:
-                      "12px",
+                      mobile
+                        ? "12px"
+                        : "13px",
 
-                    color:
-                      "var(--color-ink-mute)",
+                    opacity: 0.6,
                   }}
                 >
                   May 2026
@@ -185,7 +282,11 @@ export default function Home() {
               </div>
 
               <Sparkles
-                size={18}
+                size={
+                  mobile
+                    ? 18
+                    : 22
+                }
               />
 
             </div>
@@ -195,460 +296,327 @@ export default function Home() {
               style={{
                 fontSize:
                   mobile
-                    ? "13px"
-                    : "14px",
+                    ? "18px"
+                    : "20px",
 
                 lineHeight:
                   "1.9",
 
                 color:
-                  "rgba(255,255,255,0.76)",
+                  "rgba(255,255,255,0.82)",
+
+                maxWidth:
+                  mobile
+                    ? "100%"
+                    : "85%",
               }}
             >
               Currently
               redesigning my
-              portfolio and
-              building modern
-              full stack products
-              with immersive
-              interfaces and
-              thoughtful
-              interactions.
+              portfolio while
+              building immersive
+              full stack
+              experiences and
+              experimenting with
+              editorial-inspired
+              interfaces.
             </p>
 
-          </article>
+          </div>
 
         </section>
       </Reveal>
 
-      {/* BENTO */}
+      {/* PROJECTS */}
       <section
         style={{
-          display: "grid",
+          display: "flex",
 
-          gridTemplateColumns:
-            mobile
-              ? "1fr"
-              : "1.3fr 0.9fr",
+          flexDirection:
+            "column",
 
           gap:
             mobile
-              ? "18px"
-              : "26px",
+              ? "24px"
+              : "34px",
 
           marginBottom:
-            "120px",
+            mobile
+              ? "80px"
+              : "100px",
         }}
       >
 
-        {/* LEFT */}
-        <div
-          style={{
-            display: "grid",
+        {projects.map(
+          (project, index) => (
+            <Reveal
+              key={project.title}
 
-            gap:
-              mobile
-                ? "18px"
-                : "26px",
-          }}
-        >
-
-          {/* FEATURED */}
-          <Reveal delay={0.15}>
-            <Link
-              to="/projects"
-
-              className="bento-card"
-
-              style={{
-                position:
-                  "relative",
-
-                overflow:
-                  "hidden",
-
-                padding:
-                  mobile
-                    ? "22px"
-                    : "34px",
-
-                borderRadius:
-                  "32px",
-
-                background:
-                  "rgba(255,255,255,0.22)",
-
-                backdropFilter:
-                  "blur(18px)",
-
-                border:
-                  "1px solid rgba(255,255,255,0.14)",
-
-                minHeight:
-                  mobile
-                    ? "220px"
-                    : "340px",
-              }}
+              delay={
+                index * 0.08
+              }
             >
 
-              <p className="bento-label">
-                Featured Work
-              </p>
-
-              <h2
-                className="bento-title"
+              <Link
+                to="/projects"
 
                 style={{
-                  fontSize:
-                    mobile
-                      ? "42px"
-                      : "68px",
-                }}
-              >
-                Projects &
-                <br />
-                experiments.
-              </h2>
-
-              <div
-                style={{
-                  position:
-                    "absolute",
-
-                  right:
-                    "30px",
-
-                  bottom:
-                    "30px",
-                }}
-              >
-                <ArrowUpRight
-                  size={
-                    mobile
-                      ? 28
-                      : 34
-                  }
-                />
-              </div>
-
-            </Link>
-          </Reveal>
-
-          {/* SKILLS */}
-          <Reveal delay={0.2}>
-            <div
-              className="bento-card"
-
-              style={{
-                padding:
-                  mobile
-                    ? "22px"
-                    : "30px",
-
-                borderRadius:
-                  "32px",
-
-                background:
-                  "rgba(255,255,255,0.18)",
-
-                backdropFilter:
-                  "blur(18px)",
-
-                border:
-                  "1px solid rgba(255,255,255,0.14)",
-              }}
-            >
-
-              <p className="bento-label">
-                Stack
-              </p>
-
-              <div
-                style={{
-                  display:
-                    "flex",
-
-                  flexWrap:
-                    "wrap",
-
-                  gap: "12px",
-
-                  marginTop:
-                    "22px",
+                  textDecoration:
+                    "none",
                 }}
               >
 
-                {[
-                  "React",
-                  "Node.js",
-                  "MongoDB",
-                  "Spring Boot",
-                  "Supabase",
-                ].map((skill) => (
+                <article
+                  className="project-card"
+
+                  style={{
+                    background:
+                      "rgba(255,255,255,0.22)",
+
+                    backdropFilter:
+                      "blur(18px)",
+
+                    border:
+                      "1px solid rgba(255,255,255,0.14)",
+
+                    borderRadius:
+                      mobile
+                        ? "34px"
+                        : "36px",
+
+                    overflow:
+                      "hidden",
+
+                    transition:
+                      "all 0.45s cubic-bezier(0.22,1,0.36,1)",
+                  }}
+                >
+
+                  {/* IMAGE */}
                   <div
-                    key={skill}
-                    className="bento-pill"
+                    style={{
+                      width: "100%",
+
+                      height:
+                        mobile
+                          ? "260px"
+                          : "320px",
+
+                      overflow:
+                        "hidden",
+
+                      position:
+                        "relative",
+                    }}
                   >
-                    {skill}
+
+                    <img
+                      src={
+                        project.image
+                      }
+
+                      alt={
+                        project.title
+                      }
+
+                      style={{
+                        width:
+                          "100%",
+
+                        height:
+                          "100%",
+
+                        objectFit:
+                          "cover",
+
+                        transition:
+                          "transform 0.6s ease",
+                      }}
+                    />
+
+                    {/* NUMBER */}
+                    <div
+                      style={{
+                        position:
+                          "absolute",
+
+                        top:
+                          "18px",
+
+                        right:
+                          "18px",
+
+                        background:
+                          "rgba(255,255,255,0.88)",
+
+                        padding:
+                          mobile
+                            ? "10px 14px"
+                            : "10px 16px",
+
+                        borderRadius:
+                          "999px",
+
+                        fontFamily:
+                          "var(--font-mono)",
+
+                        fontSize:
+                          mobile
+                            ? "11px"
+                            : "12px",
+
+                        letterSpacing:
+                          "0.12em",
+
+                        color:
+                          "var(--color-ink)",
+                      }}
+                    >
+                      NO.
+                      {" "}
+                      {
+                        project.number
+                      }
+                    </div>
+
                   </div>
-                ))}
 
-              </div>
+                  {/* CONTENT */}
+                  <div
+                    style={{
+                      padding:
+                        mobile
+                          ? "24px"
+                          : "30px",
+                    }}
+                  >
 
-            </div>
-          </Reveal>
+                    {/* TOP */}
+                    <div
+                      style={{
+                        display: "flex",
 
-        </div>
+                        justifyContent:
+                          "space-between",
 
-        {/* RIGHT */}
-        <div
-          style={{
-            display: "grid",
+                        alignItems:
+                          "center",
 
-            gap:
-              mobile
-                ? "18px"
-                : "26px",
-          }}
-        >
+                        marginBottom:
+                          "18px",
+                      }}
+                    >
 
-          {/* STATUS */}
-          <Reveal delay={0.25}>
-            <div
-              className="bento-card"
+                      <h2
+                        style={{
+                          fontFamily:
+                            "var(--font-display)",
 
-              style={{
-                padding:
-                  mobile
-                    ? "22px"
-                    : "28px",
+                          fontSize:
+                            mobile
+                              ? "48px"
+                              : "54px",
 
-                borderRadius:
-                  "32px",
+                          lineHeight:
+                            "0.92",
 
-                background:
-                  "rgba(255,255,255,0.18)",
+                          fontWeight:
+                            400,
 
-                backdropFilter:
-                  "blur(18px)",
+                          color:
+                            "var(--color-ink)",
+                        }}
+                      >
+                        {
+                          project.title
+                        }
+                      </h2>
 
-                border:
-                  "1px solid rgba(255,255,255,0.14)",
-              }}
-            >
+                      <ArrowUpRight
+                        size={
+                          mobile
+                            ? 24
+                            : 30
+                        }
 
-              <Sparkles
-                size={24}
-              />
+                        color="#2d2329"
+                      />
 
-              <h3
-                style={{
-                  marginTop:
-                    "18px",
+                    </div>
 
-                  fontFamily:
-                    "var(--font-display)",
+                    {/* TAG */}
+                    <div
+                      style={{
+                        display:
+                          "inline-flex",
 
-                  fontSize:
-                    mobile
-                      ? "30px"
-                      : "42px",
+                        padding:
+                          "10px 16px",
 
-                  lineHeight:
-                    "0.95",
+                        borderRadius:
+                          "999px",
 
-                  fontWeight: 400,
-                }}
-              >
-                Available
-                <br />
-                for work.
-              </h3>
+                        background:
+                          "rgba(221,181,193,0.38)",
 
-            </div>
-          </Reveal>
+                        fontFamily:
+                          "var(--font-mono)",
 
-          {/* GITHUB */}
-          <Reveal delay={0.3}>
-            <Link
-              to="/github"
+                        fontSize:
+                          "11px",
 
-              className="bento-card"
+                        letterSpacing:
+                          "0.12em",
 
-              style={{
-                padding:
-                  mobile
-                    ? "22px"
-                    : "28px",
+                        textTransform:
+                          "uppercase",
 
-                borderRadius:
-                  "32px",
+                        marginBottom:
+                          "18px",
 
-                background:
-                  "rgba(255,255,255,0.18)",
+                        color:
+                          "var(--color-ink)",
+                      }}
+                    >
+                      {
+                        project.tag
+                      }
+                    </div>
 
-                backdropFilter:
-                  "blur(18px)",
+                    {/* DESC */}
+                    <p
+                      style={{
+                        fontSize:
+                          mobile
+                            ? "15px"
+                            : "17px",
 
-                border:
-                  "1px solid rgba(255,255,255,0.14)",
+                        lineHeight:
+                          "1.9",
 
-                textDecoration:
-                  "none",
-              }}
-            >
+                        color:
+                          "var(--color-ink-dim)",
 
-              <FolderGit2
-                size={24}
-              />
+                        maxWidth:
+                          mobile
+                            ? "100%"
+                            : "90%",
+                      }}
+                    >
+                      {
+                        project.description
+                      }
+                    </p>
 
-              <h3
-                style={{
-                  marginTop:
-                    "18px",
+                  </div>
 
-                  fontFamily:
-                    "var(--font-display)",
+                </article>
 
-                  fontSize:
-                    mobile
-                      ? "30px"
-                      : "40px",
+              </Link>
 
-                  lineHeight:
-                    "0.95",
-
-                  fontWeight: 400,
-                }}
-              >
-                GitHub
-                <br />
-                activity.
-              </h3>
-
-            </Link>
-          </Reveal>
-
-          {/* MUSIC */}
-          <Reveal delay={0.35}>
-            <div
-              className="bento-card"
-
-              style={{
-                padding:
-                  mobile
-                    ? "22px"
-                    : "28px",
-
-                borderRadius:
-                  "32px",
-
-                background:
-                  "rgba(255,255,255,0.18)",
-
-                backdropFilter:
-                  "blur(18px)",
-
-                border:
-                  "1px solid rgba(255,255,255,0.14)",
-              }}
-            >
-
-              <Music4
-                size={24}
-              />
-
-              <h3
-                style={{
-                  marginTop:
-                    "18px",
-
-                  fontFamily:
-                    "var(--font-display)",
-
-                  fontSize:
-                    mobile
-                      ? "28px"
-                      : "36px",
-
-                  lineHeight:
-                    "1",
-
-                  fontWeight: 400,
-                }}
-              >
-                Tamil
-                <br />
-                coding
-                <br />
-                vibes.
-              </h3>
-
-            </div>
-          </Reveal>
-
-          {/* RESUME */}
-          <Reveal delay={0.4}>
-            <Link
-              to="/resume"
-
-              className="bento-card"
-
-              style={{
-                padding:
-                  mobile
-                    ? "22px"
-                    : "28px",
-
-                borderRadius:
-                  "32px",
-
-                background:
-                  "rgba(255,255,255,0.18)",
-
-                backdropFilter:
-                  "blur(18px)",
-
-                border:
-                  "1px solid rgba(255,255,255,0.14)",
-
-                textDecoration:
-                  "none",
-              }}
-            >
-
-              <FileText
-                size={24}
-              />
-
-              <h3
-                style={{
-                  marginTop:
-                    "18px",
-
-                  fontFamily:
-                    "var(--font-display)",
-
-                  fontSize:
-                    mobile
-                      ? "28px"
-                      : "36px",
-
-                  lineHeight:
-                    "1",
-
-                  fontWeight: 400,
-                }}
-              >
-                Resume &
-                <br />
-                experience.
-              </h3>
-
-            </Link>
-          </Reveal>
-
-        </div>
+            </Reveal>
+          )
+        )}
 
       </section>
 

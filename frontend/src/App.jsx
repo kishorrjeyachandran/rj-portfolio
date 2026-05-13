@@ -6,8 +6,6 @@ import Projects from "./pages/Projects";
 import About from "./pages/About";
 import Skills from "./pages/Skills";
 import Github from "./pages/Github";
-import Certificates from "./pages/Certificates";
-import Education from "./pages/Education";
 import Resume from "./pages/Resume";
 
 function App() {
@@ -24,8 +22,6 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="github" element={<Github />} />
           <Route path="skills" element={<Skills />} />
-          <Route path="certificates" element={<Certificates />} />
-          <Route path="education" element={<Education />} />
           <Route path="resume" element={<Resume />} />
 
         </Route>

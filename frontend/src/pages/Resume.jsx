@@ -1,27 +1,44 @@
 export default function Resume() {
+
+  const mobile =
+    window.innerWidth <= 768;
+
   return (
     <div>
 
       {/* HERO */}
       <section
         style={{
-          marginBottom: "52px",
+          marginBottom:
+            mobile
+              ? "34px"
+              : "52px",
         }}
       >
 
         <p
           style={{
-            fontFamily: "var(--font-mono)",
+            fontFamily:
+              "var(--font-mono)",
 
-            fontSize: "12px",
+            fontSize:
+              mobile
+                ? "11px"
+                : "12px",
 
-            letterSpacing: "0.18em",
+            letterSpacing:
+              "0.18em",
 
-            textTransform: "uppercase",
+            textTransform:
+              "uppercase",
 
-            color: "var(--color-ink-mute)",
+            color:
+              "var(--color-ink-mute)",
 
-            marginBottom: "18px",
+            marginBottom:
+              mobile
+                ? "16px"
+                : "18px",
           }}
         >
           Resume
@@ -29,17 +46,33 @@ export default function Resume() {
 
         <h1
           style={{
-            fontFamily: "var(--font-display)",
+            fontFamily:
+              "var(--font-display)",
 
-            fontSize: "42px",
+            fontSize:
+              mobile
+                ? "58px"
+                : "42px",
 
-            lineHeight: "0.9",
+            lineHeight:
+              mobile
+                ? "0.88"
+                : "0.9",
 
             fontWeight: 400,
 
-            color: "var(--color-ink)",
+            color:
+              "var(--color-ink)",
 
-            marginBottom: "24px",
+            marginBottom:
+              mobile
+                ? "22px"
+                : "24px",
+
+            maxWidth:
+              mobile
+                ? "100%"
+                : "720px",
           }}
         >
           Experience,
@@ -49,30 +82,92 @@ export default function Resume() {
           technical journey.
         </h1>
 
+        <p
+          style={{
+            fontSize:
+              mobile
+                ? "15px"
+                : "15px",
+
+            lineHeight:
+              mobile
+                ? "1.9"
+                : "1.8",
+
+            color:
+              "var(--color-ink-dim)",
+
+            marginBottom:
+              mobile
+                ? "26px"
+                : "30px",
+
+            maxWidth:
+              mobile
+                ? "100%"
+                : "620px",
+          }}
+        >
+          A curated overview of
+          my technical journey,
+          full stack projects,
+          development experience,
+          and creative exploration.
+        </p>
+
         <a
           href="/resume/Kishor-Resume.pdf"
-          download
-          className="soft-hover"
-          style={{
-            display: "inline-flex",
 
-            alignItems: "center",
+          download
+
+          className="soft-hover"
+
+          style={{
+            display:
+              "inline-flex",
+
+            alignItems:
+              "center",
+
+            justifyContent:
+              "center",
+
+            width:
+              mobile
+                ? "100%"
+                : "auto",
 
             gap: "10px",
 
-            padding: "14px 22px",
+            padding:
+              mobile
+                ? "18px 22px"
+                : "14px 22px",
 
-            borderRadius: "999px",
+            borderRadius:
+              "999px",
 
-            background: "var(--color-ink)",
+            background:
+              "var(--color-ink)",
 
             color: "white",
 
-            fontFamily: "var(--font-mono)",
+            textDecoration:
+              "none",
 
-            fontSize: "12px",
+            fontFamily:
+              "var(--font-mono)",
 
-            letterSpacing: "0.08em",
+            fontSize:
+              mobile
+                ? "11px"
+                : "12px",
+
+            letterSpacing:
+              "0.08em",
+
+            transition:
+              "all 0.35s ease",
           }}
         >
           Download Resume
@@ -83,34 +178,89 @@ export default function Resume() {
       {/* PDF VIEWER */}
       <section
         style={{
-          background: "rgba(255,255,255,0.28)",
+          background:
+            "rgba(255,255,255,0.28)",
 
-          backdropFilter: "blur(12px)",
+          backdropFilter:
+            "blur(12px)",
 
-          borderRadius: "32px",
+          borderRadius:
+            mobile
+              ? "30px"
+              : "32px",
 
-          padding: "24px",
+          padding:
+            mobile
+              ? "16px"
+              : "24px",
 
-          overflow: "hidden",
+          overflow:
+            "hidden",
 
           boxShadow:
             "0 12px 40px rgba(0,0,0,0.06)",
         }}
       >
 
+        {/* MOBILE PREVIEW NOTE */}
+        {mobile && (
+          <div
+            style={{
+              marginBottom:
+                "18px",
+
+              padding:
+                "16px 18px",
+
+              borderRadius:
+                "22px",
+
+              background:
+                "rgba(255,255,255,0.38)",
+            }}
+          >
+
+            <p
+              style={{
+                fontSize: "14px",
+
+                lineHeight: "1.8",
+
+                color:
+                  "var(--color-ink-dim)",
+              }}
+            >
+              For the best viewing
+              experience, download
+              the resume PDF using
+              the button above.
+            </p>
+
+          </div>
+        )}
+
         <iframe
           src="/resume/Kishor-Resume.pdf"
+
           title="Resume"
+
           style={{
             width: "100%",
 
-            height: "1000px",
+            height:
+              mobile
+                ? "520px"
+                : "1000px",
 
             border: "none",
 
-            borderRadius: "18px",
+            borderRadius:
+              mobile
+                ? "22px"
+                : "18px",
 
-            background: "white",
+            background:
+              "white",
           }}
         />
 

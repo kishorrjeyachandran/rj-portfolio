@@ -2,39 +2,74 @@ import { GitHubCalendar } from "react-github-calendar";
 import { useEffect, useState } from "react";
 
 export default function Github() {
-  const [profile, setProfile] = useState(null);
-  const [repos, setRepos] = useState([]);
+
+  const mobile =
+    window.innerWidth <= 768;
+
+  const [profile, setProfile] =
+    useState(null);
+
+  const [repos, setRepos] =
+    useState([]);
 
   useEffect(() => {
-    fetch("https://api.github.com/users/kishorrjeyachandran")
+
+    fetch(
+      "https://api.github.com/users/kishorrjeyachandran"
+    )
       .then((res) => res.json())
-      .then((data) => setProfile(data));
+      .then((data) =>
+        setProfile(data)
+      );
 
     fetch(
       "https://api.github.com/users/kishorrjeyachandran/repos?sort=updated"
     )
       .then((res) => res.json())
-      .then((data) => setRepos(data.slice(0, 6)));
+      .then((data) =>
+        setRepos(
+          data.slice(0, 6)
+        )
+      );
+
   }, []);
 
   return (
     <div>
 
-      {/* Heading */}
+      {/* HEADING */}
       <section
         style={{
-          marginBottom: "42px",
+          marginBottom:
+            mobile
+              ? "34px"
+              : "42px",
         }}
       >
 
         <p
           style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: "12px",
-            letterSpacing: "0.18em",
-            textTransform: "uppercase",
-            color: "var(--color-ink-mute)",
-            marginBottom: "18px",
+            fontFamily:
+              "var(--font-mono)",
+
+            fontSize:
+              mobile
+                ? "11px"
+                : "12px",
+
+            letterSpacing:
+              "0.18em",
+
+            textTransform:
+              "uppercase",
+
+            color:
+              "var(--color-ink-mute)",
+
+            marginBottom:
+              mobile
+                ? "16px"
+                : "18px",
           }}
         >
           Github
@@ -42,29 +77,60 @@ export default function Github() {
 
         <h1
           style={{
-            fontFamily: "var(--font-display)",
-            fontSize: "38px",
+            fontFamily:
+              "var(--font-display)",
+
+            fontSize:
+              mobile
+                ? "56px"
+                : "38px",
+
+            lineHeight:
+              mobile
+                ? "0.92"
+                : "1",
+
             fontWeight: 400,
-            color: "var(--color-ink)",
+
+            color:
+              "var(--color-ink)",
+
+            maxWidth:
+              mobile
+                ? "100%"
+                : "720px",
           }}
         >
-          Open Source & Contributions
+          Open Source
+          <br />
+          & Contributions
         </h1>
 
       </section>
 
-      {/* Profile */}
+      {/* PROFILE */}
       {profile && (
         <section
           className="editorial-surface"
+
           style={{
-            padding: "24px",
+            padding:
+              mobile
+                ? "22px"
+                : "24px",
 
-            borderRadius: "24px",
+            borderRadius:
+              mobile
+                ? "28px"
+                : "24px",
 
-            background: "var(--color-bg-light)",
+            background:
+              "var(--color-bg-light)",
 
-            marginBottom: "36px",
+            marginBottom:
+              mobile
+                ? "28px"
+                : "36px",
           }}
         >
 
@@ -72,37 +138,68 @@ export default function Github() {
             style={{
               display: "flex",
 
-              alignItems: "center",
+              flexDirection:
+                mobile
+                  ? "column"
+                  : "row",
 
-              gap: "22px",
+              alignItems:
+                mobile
+                  ? "flex-start"
+                  : "center",
 
-              flexWrap: "wrap",
+              gap:
+                mobile
+                  ? "22px"
+                  : "22px",
             }}
           >
 
-            {/* Avatar */}
+            {/* AVATAR */}
             <img
-              src={profile.avatar_url}
+              src={
+                profile.avatar_url
+              }
+
               alt=""
+
               style={{
-                width: "92px",
-                height: "92px",
+                width:
+                  mobile
+                    ? "110px"
+                    : "92px",
 
-                borderRadius: "999px",
+                height:
+                  mobile
+                    ? "110px"
+                    : "92px",
 
-                objectFit: "cover",
+                borderRadius:
+                  "999px",
+
+                objectFit:
+                  "cover",
               }}
             />
 
-            {/* Info */}
+            {/* INFO */}
             <div>
 
               <h2
                 style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: "30px",
-                  fontWeight: 400,
-                  marginBottom: "8px",
+                  fontFamily:
+                    "var(--font-display)",
+
+                  fontSize:
+                    mobile
+                      ? "38px"
+                      : "30px",
+
+                  fontWeight:
+                    400,
+
+                  marginBottom:
+                    "10px",
                 }}
               >
                 {profile.name}
@@ -110,36 +207,69 @@ export default function Github() {
 
               <p
                 style={{
-                  color: "var(--color-ink-dim)",
-                  lineHeight: "1.7",
-                  marginBottom: "14px",
+                  color:
+                    "var(--color-ink-dim)",
+
+                  lineHeight:
+                    mobile
+                      ? "1.9"
+                      : "1.7",
+
+                  fontSize:
+                    mobile
+                      ? "14px"
+                      : "15px",
+
+                  marginBottom:
+                    "18px",
+
+                  maxWidth:
+                    "640px",
                 }}
               >
                 {profile.bio}
               </p>
 
-              {/* Stats */}
+              {/* STATS */}
               <div
                 style={{
-                  display: "flex",
-                  gap: "18px",
-                  flexWrap: "wrap",
+                  display:
+                    "grid",
+
+                  gridTemplateColumns:
+                    mobile
+                      ? "1fr 1fr"
+                      : "repeat(3,auto)",
+
+                  gap:
+                    mobile
+                      ? "12px"
+                      : "18px",
                 }}
               >
 
                 <GithubPill
+                  mobile={mobile}
                   label="Followers"
-                  value={profile.followers}
+                  value={
+                    profile.followers
+                  }
                 />
 
                 <GithubPill
+                  mobile={mobile}
                   label="Following"
-                  value={profile.following}
+                  value={
+                    profile.following
+                  }
                 />
 
                 <GithubPill
+                  mobile={mobile}
                   label="Repositories"
-                  value={profile.public_repos}
+                  value={
+                    profile.public_repos
+                  }
                 />
 
               </div>
@@ -151,37 +281,71 @@ export default function Github() {
         </section>
       )}
 
-      {/* Contributions */}
+      {/* CONTRIBUTIONS */}
       <section
         className="editorial-surface"
+
         style={{
-          padding: "24px",
+          padding:
+            mobile
+              ? "18px"
+              : "24px",
 
-          paddingTop: "12px",
+          paddingTop:
+            mobile
+              ? "8px"
+              : "12px",
 
-          overflow: "visible",
+          overflow:
+            "visible",
 
-          borderRadius: "24px",
+          borderRadius:
+            mobile
+              ? "28px"
+              : "24px",
 
-          background: "var(--color-bg-light)",
+          background:
+            "var(--color-bg-light)",
 
-          overflowX: "auto",
+          overflowX:
+            "auto",
 
-          marginBottom: "42px",
+          marginBottom:
+            mobile
+              ? "34px"
+              : "42px",
         }}
       >
 
         <GitHubCalendar
-  username="kishorrjeyachandran"
-  blockSize={14}
-  blockMargin={5}
-  fontSize={14}
-  showWeekdayLabels
-/>
+          username="kishorrjeyachandran"
+
+          blockSize={
+            mobile
+              ? 10
+              : 14
+          }
+
+          blockMargin={
+            mobile
+              ? 4
+              : 5
+          }
+
+          fontSize={
+            mobile
+              ? 11
+              : 14
+          }
+
+          showWeekdayLabels={
+            !mobile
+          }
+        />
 
       </section>
 
-      {/* Repository Grid */}
+      {/* REPOSITORIES */}
       <section>
 
         <div
@@ -189,52 +353,92 @@ export default function Github() {
             display: "grid",
 
             gridTemplateColumns:
-              "repeat(auto-fit, minmax(280px, 1fr))",
+              mobile
+                ? "1fr"
+                : "repeat(auto-fit, minmax(280px, 1fr))",
 
-            gap: "24px",
+            gap:
+              mobile
+                ? "18px"
+                : "24px",
           }}
         >
 
           {repos.map((repo) => (
+
             <a
               key={repo.id}
-              href={repo.html_url}
+
+              href={
+                repo.html_url
+              }
+
               target="_blank"
+
               rel="noopener noreferrer"
+
               style={{
-                textDecoration: "none",
-                color: "inherit",
+                textDecoration:
+                  "none",
+
+                color:
+                  "inherit",
               }}
             >
 
               <article
                 className="soft-hover"
+
                 style={{
-                  background: "var(--color-bg-light)",
+                  background:
+                    "var(--color-bg-light)",
 
-                  borderRadius: "22px",
+                  borderRadius:
+                    mobile
+                      ? "28px"
+                      : "22px",
 
-                  padding: "20px",
+                  padding:
+                    mobile
+                      ? "22px"
+                      : "20px",
 
-                  minHeight: "220px",
+                  minHeight:
+                    mobile
+                      ? "auto"
+                      : "220px",
 
                   transform:
-                    repo.id % 2 === 0
+                    mobile
+                      ? "rotate(0deg)"
+                      : repo.id % 2 === 0
                       ? "rotate(-1deg)"
                       : "rotate(1deg)",
 
-                  transition: "all 0.35s ease",
+                  transition:
+                    "all 0.35s ease",
                 }}
               >
 
                 <p
                   style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: "11px",
-                    letterSpacing: "0.14em",
-                    textTransform: "uppercase",
-                    color: "var(--color-ink-mute)",
-                    marginBottom: "18px",
+                    fontFamily:
+                      "var(--font-mono)",
+
+                    fontSize:
+                      "11px",
+
+                    letterSpacing:
+                      "0.14em",
+
+                    textTransform:
+                      "uppercase",
+
+                    color:
+                      "var(--color-ink-mute)",
+
+                    marginBottom:
+                      "18px",
                   }}
                 >
                   Repository
@@ -242,10 +446,22 @@ export default function Github() {
 
                 <h3
                   style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: "28px",
-                    fontWeight: 400,
-                    marginBottom: "14px",
+                    fontFamily:
+                      "var(--font-display)",
+
+                    fontSize:
+                      mobile
+                        ? "36px"
+                        : "28px",
+
+                    lineHeight:
+                      "0.95",
+
+                    fontWeight:
+                      400,
+
+                    marginBottom:
+                      "14px",
                   }}
                 >
                   {repo.name}
@@ -253,10 +469,21 @@ export default function Github() {
 
                 <p
                   style={{
-                    fontSize: "14px",
-                    lineHeight: "1.7",
-                    color: "var(--color-ink-dim)",
-                    marginBottom: "20px",
+                    fontSize:
+                      mobile
+                        ? "14px"
+                        : "14px",
+
+                    lineHeight:
+                      mobile
+                        ? "1.9"
+                        : "1.7",
+
+                    color:
+                      "var(--color-ink-dim)",
+
+                    marginBottom:
+                      "20px",
                   }}
                 >
                   {repo.description ||
@@ -265,18 +492,30 @@ export default function Github() {
 
                 <div
                   style={{
-                    display: "flex",
+                    display:
+                      "flex",
+
                     gap: "10px",
-                    flexWrap: "wrap",
+
+                    flexWrap:
+                      "wrap",
                   }}
                 >
 
-                  <GithubTag>
-                    {repo.language || "Code"}
+                  <GithubTag
+                    mobile={mobile}
+                  >
+                    {repo.language ||
+                      "Code"}
                   </GithubTag>
 
-                  <GithubTag>
-                    ★ {repo.stargazers_count}
+                  <GithubTag
+                    mobile={mobile}
+                  >
+                    ★{" "}
+                    {
+                      repo.stargazers_count
+                    }
                   </GithubTag>
 
                 </div>
@@ -284,6 +523,7 @@ export default function Github() {
               </article>
 
             </a>
+
           ))}
 
         </div>
@@ -294,25 +534,42 @@ export default function Github() {
   );
 }
 
-/* Pill */
+/* PILL */
 
-function GithubPill({ label, value }) {
+function GithubPill({
+  label,
+  value,
+  mobile,
+}) {
+
   return (
     <div
       style={{
-        padding: "10px 16px",
+        padding:
+          mobile
+            ? "12px 14px"
+            : "10px 16px",
 
-        borderRadius: "999px",
+        borderRadius:
+          "999px",
 
-        background: "var(--color-bg-neutral-2)",
+        background:
+          "var(--color-bg-neutral-2)",
       }}
     >
 
       <span
         style={{
-          fontFamily: "var(--font-mono)",
-          fontSize: "12px",
-          letterSpacing: "0.08em",
+          fontFamily:
+            "var(--font-mono)",
+
+          fontSize:
+            mobile
+              ? "11px"
+              : "12px",
+
+          letterSpacing:
+            "0.08em",
         }}
       >
         {label}: {value}
@@ -322,21 +579,34 @@ function GithubPill({ label, value }) {
   );
 }
 
-/* Tag */
+/* TAG */
 
-function GithubTag({ children }) {
+function GithubTag({
+  children,
+  mobile,
+}) {
+
   return (
     <span
       style={{
-        padding: "7px 12px",
+        padding:
+          mobile
+            ? "8px 13px"
+            : "7px 12px",
 
-        borderRadius: "999px",
+        borderRadius:
+          "999px",
 
-        background: "var(--color-bg-neutral-2)",
+        background:
+          "var(--color-bg-neutral-2)",
 
-        fontFamily: "var(--font-mono)",
+        fontFamily:
+          "var(--font-mono)",
 
-        fontSize: "11px",
+        fontSize:
+          mobile
+            ? "10px"
+            : "11px",
       }}
     >
       {children}
