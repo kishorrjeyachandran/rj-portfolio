@@ -51,7 +51,7 @@ export default function Sidebar({
       style={{
   width:
     window.innerWidth <= 768
-      ? "72%"
+      ? "78vw"
       : "300px",
 
   minHeight: "100vh",
@@ -96,25 +96,42 @@ export default function Sidebar({
       {/* INNER */}
       <div
         style={{
-          width: "250px",
+  width: "100%",
 
-          margin: "0 auto",
+  maxWidth:
+    window.innerWidth <= 768
+      ? "100%"
+      : "250px",
 
-          paddingTop: "52px",
+  margin: "0 auto",
 
-          paddingBottom:
-            "42px",
+  paddingTop:
+    window.innerWidth <= 768
+      ? "34px"
+      : "52px",
 
-          display: "flex",
+  paddingBottom: "42px",
 
-          flexDirection:
-            "column",
+  paddingLeft:
+    window.innerWidth <= 768
+      ? "26px"
+      : "0px",
 
-          justifyContent:
-            "space-between",
+  paddingRight:
+    window.innerWidth <= 768
+      ? "26px"
+      : "0px",
 
-          minHeight: "100vh",
-        }}
+  display: "flex",
+
+  flexDirection: "column",
+
+  justifyContent: "space-between",
+
+  minHeight: "100vh",
+
+  boxSizing: "border-box",
+}}
       >
 
         {/* MOBILE CLOSE */}
