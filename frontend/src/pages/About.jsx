@@ -111,21 +111,21 @@ export default function About() {
     {/* Left */}
     <ImageCard
       height="330px"
-      image="/images/about-1.jpg"
+      image="/images/about-1.png"
       rotate="-3deg"
     />
 
     {/* Center */}
     <ImageCard
       height="360px"
-      image="/images/about-2.jpg"
+      image="/images/about-2.png"
       rotate="1.5deg"
     />
 
     {/* Right */}
     <ImageCard
       height="330px"
-      image="/images/about-3.jpg"
+      image="/images/about-3.jpeg"
       rotate="-2deg"
     />
 
@@ -196,7 +196,7 @@ function ImageCard({
 }) {
   return (
     <div
-      className="soft-hover"
+      className="about-image-card"
       style={{
         height,
 
@@ -208,22 +208,76 @@ function ImageCard({
 
         transform: `rotate(${rotate})`,
 
-        transition: "transform 0.35s ease",
+        transition: "all 0.45s ease",
 
         boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+
+        cursor: "pointer",
       }}
     >
 
+      {/* Image */}
       <img
         src={image}
         alt=""
         style={{
           width: "100%",
+
           height: "100%",
+
           objectFit: "cover",
+
           display: "block",
+
+          transition: "transform 0.6s ease",
         }}
       />
+
+      {/* Overlay */}
+      <div
+        className="about-image-overlay"
+        style={{
+          position: "absolute",
+
+          inset: 0,
+
+          background:
+            "linear-gradient(to top, rgba(0,0,0,0.7), transparent 58%)",
+
+          opacity: 0,
+
+          transition: "opacity 0.35s ease",
+
+          display: "flex",
+
+          alignItems: "flex-end",
+
+          padding: "22px",
+        }}
+      >
+
+        {/* Caption */}
+        <p
+          style={{
+            fontFamily: "var(--font-display)",
+
+            fontSize: "24px",
+
+            lineHeight: "1.1",
+
+            color: "white",
+
+            maxWidth: "80%",
+          }}
+        >
+          {image.includes("about-1")
+            ? "Late night UI experiments"
+            : image.includes("about-2")
+            ? "Building immersive digital experiences"
+            : "Somewhere between code and creativity"}
+        </p>
+
+      </div>
 
     </div>
   );

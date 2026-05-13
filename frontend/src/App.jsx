@@ -8,6 +8,7 @@ import Skills from "./pages/Skills";
 import Github from "./pages/Github";
 import Certificates from "./pages/Certificates";
 import Education from "./pages/Education";
+import Resume from "./pages/Resume";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="skills" element={<Skills />} />
           <Route path="certificates" element={<Certificates />} />
           <Route path="education" element={<Education />} />
+          <Route path="resume" element={<Resume />} />
 
         </Route>
 

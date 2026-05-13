@@ -65,15 +65,15 @@ export default function ExploreCard() {
         />
 
         <ExploreItem
-  number="04."
-  label="GitHub"
-  to="/github"
-/>
+          number="04."
+          label="GitHub"
+          to="/github"
+        />
 
         <ExploreItem
           number="05."
-          label="Education"
-          to="/education"
+          label="Resume"
+          to="/resume"
         />
 
       </div>

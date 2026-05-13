@@ -157,6 +157,10 @@ export default function Github() {
         style={{
           padding: "24px",
 
+          paddingTop: "12px",
+
+          overflow: "visible",
+
           borderRadius: "24px",
 
           background: "var(--color-bg-light)",
@@ -168,8 +172,12 @@ export default function Github() {
       >
 
         <GitHubCalendar
-          username="kishorrjeyachandran"
-        />
+  username="kishorrjeyachandran"
+  blockSize={14}
+  blockMargin={5}
+  fontSize={14}
+  showWeekdayLabels
+/>
 
       </section>
 

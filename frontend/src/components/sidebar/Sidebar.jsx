@@ -1,28 +1,55 @@
 import ExploreCard from "./ExploreCard";
 
-export default function Sidebar() {
+export default function Sidebar({
+  menuOpen,
+  setMenuOpen,
+}) {
   return (
     <aside
-      style={{
-        width: "340px",
-        minHeight: "100vh",
-        background: "var(--color-bg-light)",
-        borderRight: "1px solid rgba(45,35,41,0.05)",
-        position: "sticky",
-        top: 0,
-      }}
-    >
+  className="sidebar-scroll"
+  style={{
+    width: "300px",
+
+    minHeight: "100vh",
+
+    overflowY: "auto",
+
+    background: "var(--color-bg-light)",
+
+    borderRight: "1px solid rgba(45,35,41,0.05)",
+
+    position: "sticky",
+
+    top: 0,
+
+    transition: "transform 0.45s cubic-bezier(0.22,1,0.36,1)",
+
+    transform:
+  window.innerWidth <= 768
+    ? menuOpen
+      ? "translateX(0)"
+      : "translateX(-100%)"
+    : "translateX(0)",
+
+    zIndex: 300,
+  }}
+> 
 
       {/* Inner Editorial Column */}
       <div
         style={{
           width: "250px",
+
           margin: "0 auto",
+
           paddingTop: "52px",
+
           paddingBottom: "42px",
 
           display: "flex",
+
           flexDirection: "column",
+
           justifyContent: "space-between",
 
           minHeight: "100vh",
@@ -36,9 +63,11 @@ export default function Sidebar() {
           <div
             style={{
               height: "72px",
+
               marginBottom: "24px",
 
               display: "flex",
+
               alignItems: "center",
             }}
           >
@@ -46,6 +75,7 @@ export default function Sidebar() {
             <div
               style={{
                 width: "34px",
+
                 height: "34px",
 
                 borderRadius: "14px",
@@ -85,23 +115,22 @@ export default function Sidebar() {
               style={{
                 fontFamily: "var(--font-mono)",
 
-                fontSize: "11px",
+                fontSize: "18px",
 
                 textTransform: "uppercase",
-
-                letterSpacing: "0.18em",
 
                 color: "var(--color-ink-mute)",
 
                 marginBottom: "28px",
               }}
             >
-              Full Stack Developer
+              @Full Stack Developer
             </p>
 
             <div
               style={{
                 display: "flex",
+
                 flexDirection: "column",
 
                 gap: "18px",
@@ -110,9 +139,9 @@ export default function Sidebar() {
 
               <p
                 style={{
-                  fontSize: "14px",
+                  fontSize: "16px",
 
-                  lineHeight: "1.9",
+                  lineHeight: "1.5",
 
                   color: "var(--color-ink-dim)",
                 }}
@@ -122,9 +151,9 @@ export default function Sidebar() {
 
               <p
                 style={{
-                  fontSize: "14px",
+                  fontSize: "16px",
 
-                  lineHeight: "1.9",
+                  lineHeight: "1.5",
 
                   color: "var(--color-ink-dim)",
                 }}
@@ -139,9 +168,10 @@ export default function Sidebar() {
           {/* Explore */}
           <div
             style={{
-              marginBottom: "44px",
+              marginBottom: "20px",
 
               display: "flex",
+
               justifyContent: "center",
             }}
           >
@@ -157,7 +187,7 @@ export default function Sidebar() {
               style={{
                 fontFamily: "var(--font-mono)",
 
-                fontSize: "11px",
+                fontSize: "16px",
 
                 textTransform: "uppercase",
 
@@ -174,7 +204,8 @@ export default function Sidebar() {
             <div
               style={{
                 display: "flex",
-                flexDirection: "column",
+
+                flexDirection: "row",
 
                 gap: "8px",
               }}
@@ -183,7 +214,8 @@ export default function Sidebar() {
               <a
                 href="#"
                 style={{
-                  fontSize: "14px",
+                  fontSize: "16px",
+
                   color: "var(--color-ink-dim)",
                 }}
               >
@@ -193,7 +225,8 @@ export default function Sidebar() {
               <a
                 href="#"
                 style={{
-                  fontSize: "14px",
+                  fontSize: "16px",
+
                   color: "var(--color-ink-dim)",
                 }}
               >
@@ -203,21 +236,12 @@ export default function Sidebar() {
               <a
                 href="#"
                 style={{
-                  fontSize: "14px",
+                  fontSize: "16px",
+
                   color: "var(--color-ink-dim)",
                 }}
               >
                 LinkedIn
-              </a>
-
-              <a
-                href="#"
-                style={{
-                  fontSize: "14px",
-                  color: "var(--color-ink-dim)",
-                }}
-              >
-                X
               </a>
 
             </div>
