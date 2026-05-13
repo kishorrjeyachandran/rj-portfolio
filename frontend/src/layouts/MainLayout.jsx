@@ -1,5 +1,7 @@
-```jsx
-import { Outlet, useLocation } from "react-router-dom";
+import {
+  Outlet,
+  useLocation,
+} from "react-router-dom";
 
 import { AnimatePresence } from "framer-motion";
 
@@ -31,7 +33,9 @@ import MouseGlow from "../components/effects/MouseGlow";
 import Loader from "../components/effects/Loader";
 
 export default function MainLayout() {
-  const location = useLocation();
+
+  const location =
+    useLocation();
 
   const [menuOpen, setMenuOpen] =
     useState(false);
@@ -39,8 +43,15 @@ export default function MainLayout() {
   const [loading, setLoading] =
     useState(true);
 
+  /* SAFE MOBILE CHECK */
+  const mobile =
+    typeof window !==
+      "undefined" &&
+    window.innerWidth <= 768;
+
   /* PAGE TITLES */
   useEffect(() => {
+
     const titles = {
       "/": "Kishor",
 
@@ -61,18 +72,23 @@ export default function MainLayout() {
     };
 
     document.title =
-      titles[location.pathname] ||
-      "Kishor";
+      titles[
+        location.pathname
+      ] || "Kishor";
+
   }, [location.pathname]);
 
   /* LOADER */
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 3000);
+
+    const timer =
+      setTimeout(() => {
+        setLoading(false);
+      }, 3000);
 
     return () =>
       clearTimeout(timer);
+
   }, []);
 
   if (loading) {
@@ -81,6 +97,7 @@ export default function MainLayout() {
 
   return (
     <>
+
       <Starfield />
 
       <MouseGlow />
@@ -96,98 +113,112 @@ export default function MainLayout() {
       <CommandPalette />
 
       {/* MOBILE TOPBAR */}
-      <div
-        className="mobile-topbar"
-        style={{
-          position: "fixed",
+      {
+        mobile && (
+          <div
+            className="mobile-topbar"
 
-          top: 0,
+            style={{
+              position:
+                "fixed",
 
-          left: 0,
+              top: 0,
 
-          right: 0,
+              left: 0,
 
-          height: "72px",
+              right: 0,
 
-          padding: "0 24px",
+              height: "72px",
 
-          background:
-            "rgba(246,238,241,0.82)",
+              padding:
+                "0 24px",
 
-          backdropFilter:
-            "blur(18px)",
+              background:
+                "rgba(246,238,241,0.82)",
 
-          display: "none",
+              backdropFilter:
+                "blur(18px)",
 
-          alignItems: "center",
+              display: "flex",
 
-          justifyContent:
-            "space-between",
+              alignItems:
+                "center",
 
-          zIndex: 200,
-        }}
-      >
+              justifyContent:
+                "space-between",
 
-        {/* LOGO */}
-        <h2
-          style={{
-            fontFamily:
-              "var(--font-display)",
+              zIndex: 200,
+            }}
+          >
 
-            fontSize: "34px",
+            {/* LOGO */}
+            <h2
+              style={{
+                fontFamily:
+                  "var(--font-display)",
 
-            fontWeight: 400,
+                fontSize:
+                  "34px",
 
-            color:
-              "var(--color-ink)",
-          }}
-        >
-          Kishor
-        </h2>
+                fontWeight:
+                  400,
 
-        {/* MENU */}
-        <button
-          onClick={() =>
-            setMenuOpen(
-              !menuOpen
-            )
-          }
+                color:
+                  "var(--color-ink)",
+              }}
+            >
+              Kishor
+            </h2>
 
-          style={{
-            border: "none",
+            {/* MENU */}
+            <button
+              onClick={() =>
+                setMenuOpen(
+                  !menuOpen
+                )
+              }
 
-            background: "none",
+              style={{
+                border: "none",
 
-            fontFamily:
-              "var(--font-mono)",
+                background:
+                  "none",
 
-            fontSize: "16px",
+                fontFamily:
+                  "var(--font-mono)",
 
-            cursor: "pointer",
+                fontSize:
+                  "22px",
 
-            color:
-              "var(--color-ink)",
-          }}
-        >
-          ☰
-        </button>
+                cursor:
+                  "pointer",
 
-      </div>
+                color:
+                  "var(--color-ink)",
+              }}
+            >
+              ☰
+            </button>
+
+          </div>
+        )
+      }
 
       {/* PAGE */}
       <div
         style={{
-          minHeight: "100vh",
+          minHeight:
+            "100vh",
 
-          position: "relative",
+          position:
+            "relative",
         }}
       >
 
         {/* MOBILE OVERLAY */}
         {
           menuOpen &&
-          window.innerWidth <=
-            768 && (
+          mobile && (
             <div
               onClick={() =>
                 setMenuOpen(
@@ -215,7 +246,10 @@ export default function MainLayout() {
 
         {/* SIDEBAR */}
         <Sidebar
-          menuOpen={menuOpen}
+          menuOpen={
+            menuOpen
+          }
+
           setMenuOpen={
             setMenuOpen
           }
@@ -232,12 +266,18 @@ export default function MainLayout() {
 
             flexDirection:
               "column",
+
+            marginLeft:
+              mobile
+                ? "0px"
+                : "300px",
           }}
         >
 
           {/* CONTENT */}
           <main
             className="main-content"
+
             style={{
               flex: 1,
 
@@ -252,7 +292,9 @@ export default function MainLayout() {
                   location.pathname
                 }
               >
+
                 <Outlet />
+
               </PageTransition>
 
             </AnimatePresence>
@@ -269,4 +311,3 @@ export default function MainLayout() {
     </>
   );
 }
-```
